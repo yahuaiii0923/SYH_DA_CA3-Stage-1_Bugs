@@ -38,12 +38,13 @@ public:
     void setAlive(bool status);
     void increaseSize(int amount);
 
-    int getId() const;
-    Position getPosition() const;
-    Direction getDirection() const;
-    int getSize() const;
-    bool isAlive() const;
-    std::list<Position> getPath() const;
+    const int getId();
+    const int getPositionX();
+    const int getPositionY();
+    const Direction getDirection();
+    const int getSize();
+    const bool isAlive();
+    const std::list<Position> getPath();
 
     void move();
     bool isWayBlocked() const;
