@@ -3,6 +3,8 @@
 //
 
 #include "crawler.h"
+#include <cstdlib>
+#include <ctime>
 
 //constructor
 Crawler::Crawler(int id, int x, int y, int dir, int size)
