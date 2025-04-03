@@ -39,12 +39,12 @@ public:
     void increaseSize(int amount);
 
  int getId() const;
-    const int getPositionX();
-    const int getPositionY();
-    const Direction getDirection();
-    const int getSize();
-    const bool isAlive();
-    const std::list<Position> getPath();
+    int getPositionX() const;
+    int getPositionY() const;
+    Direction getDirection();
+    int getSize() const;
+    bool isAlive() const;
+    std::list<Position> getPath() const;
 
     void move();
     bool isWayBlocked() const;

@@ -20,7 +20,7 @@ class Board {
   private:
     std::vector<Crawler*> crawlers;
 
-    std::map<std::pair<int, int>, std::vector<Crawler*>> cells;
+    std::map<std::pair<int, int>, std::vector<Crawler*> > cells;
     bool gameOver;
 
     void updateCells();
@@ -30,6 +30,8 @@ class Board {
     public:
      Board();
      ~Board();
+
+     void initializeBoard(const std::string& filename);
 
      bool loadBugsFromFile(std::string& fileName);
 

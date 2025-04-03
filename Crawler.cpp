@@ -2,42 +2,43 @@
 // Created by Siew Yahuai on 31/03/2025.
 //
 
-#include "crawler.h"
+#include "Crawler.h"
 #include <cstdlib>
 #include <ctime>
 
 //constructor
 Crawler::Crawler(int id, int x, int y, int dir, int size)
-    :id(id), position{x,y}, direction(static_cast<Direction>(dir), size(size), alive(true){
-  path.push_back(position);
+    : id(id), position{x, y}, direction(static_cast<Direction>(dir)), size(size), alive(true) {
+    path.push_back(position);
 }
 
+
 //getter
-cosnt int Crawler::getId(){
+int Crawler::getId() const{
   return id;
 }
 
-const int Crawler::getPositionX(){
+int Crawler::getPositionX() const{
   return position.x;
 }
 
-const int Crawler::getPositionY(){
+int Crawler::getPositionY() const{
   return position.y;
 }
 
-const Direction Crawler::getDirection(){
-  return Direction;
+Direction Crawler::getDirection(){
+  return direction;
 }
 
-const int Crawler::getSize(){
+int Crawler::getSize() const{
   return size;
 }
 
-const bool Crawler::isAlive(){
+bool Crawler::isAlive() const{
   return alive;
 }
 
-const std::list<Position> Crawler::getPath(){
+std::list<Position> Crawler::getPath() const{
   return path;
 }
 

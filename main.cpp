@@ -3,7 +3,10 @@
 //
 
 #include <iostream>
+#include "Board.h"
 using namespace std;
+
+Board board;
 
 void displayMenu(){
     cout << "1. Initialise Bug Board"
@@ -18,13 +21,23 @@ void displayMenu(){
 
 int main(){
     int choice;
+    bool initialized = false;
+
     do {
         displayMenu();
         cout << "Enter your choice: ";
         cin >> choice;
 
+        if (choice != 1 && choice != 8 && !initialized) {
+            cout << "Board not initialized. Please select option 1 first.\n";
+            continue;
+        }
+
         switch(choice) {
             case 1:
+                board.initializeBoard("/Users/yahuai/Documents/Y2/C++/CA3/SYH_DA_CA3-Stage-1_Bugs/crawler-bugs.txt");
+                initialized = true;
+                cout << "Board initialized!\n";
                 break;
             case 2:
                 break;
