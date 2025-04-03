@@ -82,3 +82,34 @@ void Board::tap() {
   std::cout << "Board tapped! All bugs moved and fights resolved." << std::endl;
 
   }
+
+
+  void Board::displayAllCells() const {
+    std::cout << "\n====== CELLS AND THEIR BUGS ======\n";
+
+    for (int y = 0; y < 10; y++) {
+        for (int x = 0; x < 10; x++) {
+            std::cout << "(" << x << "," << y << "): ";
+
+            // find bugs at position
+            auto it = cells.find({x, y});
+            if (it != cells.end() && !it->second.empty()) {
+
+                bool first = true;
+                for (const Crawler* bug : it->second) {
+                    if (!first) {
+                        std::cout << ", ";
+                    }
+                    std::cout << "Crawler " << bug->getId();
+                    first = false;
+                }
+            } else {
+                // cell is empty
+                std::cout << "empty";
+            }
+            std::cout << std::endl;
+        }
+    }
+}
+
+
