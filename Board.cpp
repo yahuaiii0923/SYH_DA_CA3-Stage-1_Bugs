@@ -10,27 +10,106 @@
 #include <thread>
 #include <iomanip>
 #include <ctime>
-#include <random>
+#include <cstdlib>
 
 
 Board::Board() : gameOver(false) {
-
-  //initialise cell map to be empty
-
-  for(int i = 0; i < 10; i++) {
-
-    for(int j = 0; j < 10; j++) {
-      cells[{i, j}] = std::vector<Crawler*>();
+    // Initialize cells map
+    for(int i = 0; i < 10; i++) {
+        for(int j = 0; j < 10; j++) {
+            cells[{i, j}] = std::vector<Crawler*>();
+        }
     }
-    }
-  }
+}
+
 
 Board::~Board() {
-  for (auto crawler : crawlers) {
-    delete crawler;
-  }
-  crawlers.clear();
-  cells.clear();
+    for (auto crawler : crawlers) {
+        delete crawler;
+    }
+    crawlers.clear();
+    cells.clear();
+}
+
+// Board.cpp
+void Board::updateCells() {
+    // Clear existing cells
+    for (auto& cell : cells) {
+        cell.second.clear();
+    }
+
+    // Update cells with alive crawlers
+    for (Crawler* crawler : crawlers) {
+        if (crawler->isAlive()) {
+            int x = crawler->getPositionX();
+            int y = crawler->getPositionY();
+            cells[{x, y}].push_back(crawler);
+        }
+    }
+}
+
+void Board::handleFights() {
+    for (auto& cellEntry : cells) {
+        auto& bugsInCell = cellEntry.second;
+        if (bugsInCell.size() <= 1) continue;
+
+        // Find the largest bug(s)
+        int maxSize = 0;
+        for (Crawler* bug : bugsInCell) {
+            if (bug->getSize() > maxSize) {
+                maxSize = bug->getSize();
+            }
+        }
+
+        // Collect contenders of max size
+        std::vector<Crawler*> contenders;
+        for (Crawler* bug : bugsInCell) {
+            if (bug->getSize() == maxSize) {
+                contenders.push_back(bug);
+            }
+        }
+
+        // Randomly select a winner if multiple contenders
+        Crawler* winner = contenders[rand() % contenders.size()];
+        int totalSizeEaten = 0;
+
+        // Kill other bugs and update winner's size
+        for (Crawler* bug : bugsInCell) {
+            if (bug != winner) {
+                totalSizeEaten += bug->getSize();
+                bug->setAlive(false);
+            }
+        }
+
+        winner->increaseSize(totalSizeEaten);
+        bugsInCell.clear();
+        bugsInCell.push_back(winner);
+    }
+    updateCells(); // Refresh cell data after fights
+}
+
+//(1)Initialize Board
+void Board::initializeBoard(const std::string& filename) {
+    std::ifstream file(filename);
+    if (!file.is_open()) {
+        std::cerr << "Error opening file: " << filename << std::endl;
+        return;
+    }
+
+    std::string line;
+    while (std::getline(file, line)) {
+        std::stringstream ss(line);
+        char type, comma;
+        int id, x, y, dir, size;
+
+        // Parse line format: C,101,0,0,4,2
+        ss >> type >> comma >> id >> comma >> x >> comma >> y >> comma >> dir >> comma >> size;
+
+        if (type == 'C') {
+            crawlers.push_back(new Crawler(id, x, y, dir, size));
+        }
+    }
+    updateCells(); // Update cell positions
 }
 
 
