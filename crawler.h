@@ -38,7 +38,7 @@ public:
     void setAlive(bool status);
     void increaseSize(int amount);
 
-    const int getId();
+ int getId() const;
     const int getPositionX();
     const int getPositionY();
     const Direction getDirection();
