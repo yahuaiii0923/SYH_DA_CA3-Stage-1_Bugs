@@ -3,3 +3,82 @@
 //
 
 #include "Board.h"
+#include <iostream>
+#include <fstream>
+#include <sstream>
+#include <chrono>
+#include <thread>
+#include <iomanip>
+#include <ctime>
+#include <random>
+
+
+Board::Board() : gameOver(false) {
+
+  //initialise cell map to be empty
+
+  for(int i = 0; i < 10; i++) {
+
+    for(int j = 0; j < 10; j++) {
+      cells[{i, j}] = std::vector<Crawler*>();
+    }
+    }
+  }
+
+Board::~Board() {
+  for (auto crawler : crawlers) {
+    delete crawler;
+  }
+  crawlers.clear();
+  cells.clear();
+}
+
+
+//(2) DisplayAllBugs();
+void Board::displayAllBugs() const {
+    std::cout << "\n--- All Bugs ---\n";
+    std::cout << std::left << std::setw(5) << "ID"
+              << std::setw(10) << "Type"
+              << std::setw(10) << "Position"
+              << std::setw(5) << "Size"
+              << std::setw(10) << "Direction"
+              << "Status\n";
+    std::cout << std::string(60, '-') << std::endl;
+
+    for (const auto& bug : crawlers) {
+        std::string directionStr;
+        Direction dir = bug->getDirection();
+        switch (dir) {
+            case Direction::North: directionStr = "North"; break;
+            case Direction::East: directionStr = "East"; break;
+            case Direction::South: directionStr = "South"; break;
+            case Direction::West: directionStr = "West"; break;
+            default: directionStr = "Unknown";
+        }
+
+        std::cout << std::left << std::setw(5) << bug->getId()
+                  << std::setw(10) << "Crawler"
+                  << "(" << bug->getPositionX() << "," << bug->getPositionY() << ")" << std::setw(3) << " "
+                  << std::setw(5) << bug->getSize()
+                  << std::setw(10) << directionStr
+                  << (bug->isAlive() ? "Alive" : "Dead")
+                  << std::endl;
+    }
+}
+
+
+void Board::tap() {
+
+  for(Crawler* crawler : crawlers) {
+    if(crawler->isAlive()) {
+      crawler->move();
+    }
+    }
+
+    updateCells();
+
+    handleFights();
+
+  std::cout << "Board tapped! All bugs moved and fights resolved." << std::endl;
+
+  }
