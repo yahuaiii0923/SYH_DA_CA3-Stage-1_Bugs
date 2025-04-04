@@ -163,7 +163,7 @@ void Board::tap() {
   }
 
 
-  void Board::displayAllCells() const {
+void Board::displayAllCells() const {
     std::cout << "\n====== CELLS AND THEIR BUGS ======\n";
 
     for (int y = 0; y < 10; y++) {
@@ -189,6 +189,15 @@ void Board::tap() {
             std::cout << std::endl;
         }
     }
+}
+
+Crawler* Board::findBug(int id) const {
+    for (Crawler* crawler : crawlers) {
+        if (crawler->getId() == id) {
+            return crawler;
+        }
+    }
+    return nullptr; // Return nullptr if not found
 }
 
 

@@ -35,14 +35,42 @@ int main(){
 
         switch(choice) {
             case 1:
-                board.initializeBoard("crawler-bugs.txt");
+                board.initializeBoard("/Users/yahuai/Documents/Y2/C++/CA3/SYH_DA_CA3-Stage-1_Bugs/crawler-bugs.txt");
                 initialized = true;
                 cout << "Board initialized!\n";
                 break;
             case 2:
                 break;
             case 3:
+            {
+                if (!initialized) {
+                    cout << "Board not initialized. Select option 1 first.\n";
+                    break;
+                }
+                int searchId;
+                cout << "Enter bug ID to search: ";
+                cin >> searchId;
+
+                Crawler* foundBug = board.findBug(searchId);
+                if (foundBug != nullptr) {
+                    // Display bug details
+                    cout << "Bug Found!\n";
+                    cout << "ID: " << foundBug->getId() << "\n";
+                    cout << "Position: (" << foundBug->getPositionX() << ", " << foundBug->getPositionY() << ")\n";
+                    cout << "Direction: ";
+                    switch (foundBug->getDirection()) {
+                        case Direction::North: cout << "North"; break;
+                        case Direction::East:  cout << "East";  break;
+                        case Direction::South: cout << "South"; break;
+                        case Direction::West:  cout << "West";  break;
+                    }
+                    cout << "\nSize: " << foundBug->getSize() << "\n";
+                    cout << "Status: " << (foundBug->isAlive() ? "Alive" : "Dead") << "\n";
+                } else {
+                    cout << "Bug " << searchId << " not found.\n";
+                }
                 break;
+            }
             case 4:
                 break;
             case 5:
