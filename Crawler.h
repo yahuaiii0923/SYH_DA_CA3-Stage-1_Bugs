@@ -41,7 +41,7 @@ public:
  int getId() const;
     int getPositionX() const;
     int getPositionY() const;
-    Direction getDirection();
+    Direction getDirection() const;
     int getSize() const;
     bool isAlive() const;
     std::list<Position> getPath() const;

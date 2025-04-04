@@ -43,6 +43,7 @@ int main(){
                 cout << "Board initialized!\n";
                 break;
             case 2:
+                board.displayAllBugs();
                 break;
             case 3:
             {
@@ -75,11 +76,13 @@ int main(){
                 break;
             }
             case 4:
+                board.tap();
                 break;
             case 5:
                 board.displayLifeHistory();
                 break;
             case 6:
+                board.displayAllCells();
                 break;
             case 7:
                 board.runSimulation();

@@ -85,8 +85,6 @@ void Board::handleFights() {
         }
 
         winner->increaseSize(totalSizeEaten);
-        bugsInCell.clear();
-        bugsInCell.push_back(winner);
     }
     updateCells(); // Refresh cell data after fights
 }
