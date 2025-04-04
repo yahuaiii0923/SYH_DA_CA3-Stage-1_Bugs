@@ -21,6 +21,7 @@ class Board {
     std::vector<Crawler*> crawlers;
 
     std::map<std::pair<int, int>, std::vector<Crawler*>> cells;
+  std::map<int, int> eatenBy;
     bool gameOver;
 
     void updateCells();
