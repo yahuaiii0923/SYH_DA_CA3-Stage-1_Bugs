@@ -24,6 +24,7 @@ void displayMenu(){
 int main(){
     int choice;
     bool initialized = false;
+    srand(time(NULL));
 
     do {
         displayMenu();
@@ -81,6 +82,7 @@ int main(){
             case 6:
                 break;
             case 7:
+                board.runSimulation();
                 break;
             case 8: {
                 auto now = std::chrono::system_clock::now();
@@ -96,6 +98,6 @@ int main(){
             default:
                 cout << "Invalid choice. Please try again." << endl;
         }
-    }while(choice != 7);
+    }while(choice != 8);
     return 0;
 }

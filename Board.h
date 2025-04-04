@@ -49,6 +49,7 @@ class Board {
 
     void writeHistoryToFile(const std::string& filename) const;
 
+    bool isGameOver() const;
 };
 
 

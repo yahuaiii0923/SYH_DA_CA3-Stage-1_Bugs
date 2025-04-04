@@ -13,6 +13,8 @@
 #include <cstdlib>
 
 
+
+
 Board::Board() : gameOver(false) {
     // Initialize cells map
     for(int i = 0; i < 10; i++) {
@@ -160,7 +162,7 @@ void Board::tap() {
     handleFights();
 
   std::cout << "Board tapped! All bugs moved and fights resolved." << std::endl;
-
+    displayAllBugs();
   }
 
 
@@ -237,6 +239,45 @@ void Board::writeHistoryToFile(const std::string& filename) const {
         }
         file << std::endl;
     }
+}
+
+bool Board::isGameOver() const {
+    int aliveCount = 0;
+    for (const Crawler* crawler : crawlers) {
+        if (crawler->isAlive()) aliveCount++;
+        if (aliveCount > 1) return false; // Early exit
+    }
+    return aliveCount <= 1;
+}
+
+void Board::runSimulation() {
+    std::ofstream logFile("simulation.log");
+
+    if (!logFile) {
+        std::cerr << "Error: Failed to open simulation.log for writing.\n";
+        return; // Exit early to avoid silent failures
+    }
+
+    while (!isGameOver()) {
+        tap();
+        displayAllBugs();
+
+        for (const Crawler* bug : crawlers) {
+            logFile << "ID: " << bug->getId()
+                    << " Position: (" << bug->getPositionX() << "," << bug->getPositionY() << ")"
+                    << " Size: " << bug->getSize()
+                    << " Status: " << (bug->isAlive() ? "Alive" : "Dead") << "\n";
+            if (!logFile) {
+                std::cerr << "Error writing to log file!\n";
+                break;
+            }
+        }
+        logFile.flush(); // Ensure data is written even if program crashes later
+
+        std::this_thread::sleep_for(std::chrono::milliseconds(100));
+    }
+
+    logFile.close();
 }
 
 
