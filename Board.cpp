@@ -54,7 +54,6 @@ void Board::handleFights() {
         auto& bugsInCell = cellEntry.second;
         if (bugsInCell.size() <= 1) continue;
 
-        // Find the largest bug(s)
         int maxSize = 0;
         for (Crawler* bug : bugsInCell) {
             if (bug->getSize() > maxSize) {
@@ -109,7 +108,7 @@ void Board::initializeBoard(const std::string& filename) {
             crawlers.push_back(new Crawler(id, x, y, dir, size));
         }
     }
-    updateCells(); // Update cell positions
+    updateCells(); // positions
 }
 
 
@@ -184,7 +183,6 @@ void Board::tap() {
                     first = false;
                 }
             } else {
-                // cell is empty
                 std::cout << "empty";
             }
             std::cout << std::endl;
@@ -198,7 +196,7 @@ void Board::tap() {
             return crawler;
         }
     }
-    return nullptr; // Return nullptr if not found
+    return nullptr; // if not found
 }
 
 void Board::displayLifeHistory() const {
@@ -270,7 +268,7 @@ void Board::runSimulation() {
                 break;
             }
         }
-        logFile.flush(); // Ensure data is written even if program crashes later
+        logFile.flush();
 
         std::this_thread::sleep_for(std::chrono::milliseconds(100));
     }
