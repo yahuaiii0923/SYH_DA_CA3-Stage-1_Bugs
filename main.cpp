@@ -38,7 +38,7 @@ int main(){
 
         switch(choice) {
             case 1:
-                board.initializeBoard("/Users/yahuai/Documents/Y2/C++/CA3/SYH_DA_CA3-Stage-1_Bugs/crawler-bugs.txt");
+                board.initializeBoard("crawler-bugs.txt");
                 initialized = true;
                 cout << "Board initialized!\n";
                 break;
