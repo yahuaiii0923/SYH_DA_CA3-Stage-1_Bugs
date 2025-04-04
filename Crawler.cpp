@@ -42,6 +42,10 @@ std::list<Position> Crawler::getPath() const{
   return path;
 }
 
+int Crawler::getKilledBy() const {
+    return killedBy;
+}
+
 //setter
 void Crawler::setDirection(Direction dir){
   direction = dir;
@@ -82,4 +86,8 @@ bool Crawler::isWayBlocked() const {
         case Direction::West:  return (position.x == 0); // Left edge
         default: return false;
     }
+}
+
+void Crawler::setKilledBy(int killerId) {
+    killedBy = killerId;
 }

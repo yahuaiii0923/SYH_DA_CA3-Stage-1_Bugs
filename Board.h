@@ -47,7 +47,7 @@ class Board {
 
      void runSimulation();
 
-     void writeHistoryToFile() const;
+    void writeHistoryToFile(const std::string& filename) const;
 
 };
 

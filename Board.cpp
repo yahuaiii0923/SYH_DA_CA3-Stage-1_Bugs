@@ -78,6 +78,7 @@ void Board::handleFights() {
             if (bug != winner) {
                 totalSizeEaten += bug->getSize();
                 bug->setAlive(false);
+                bug->setKilledBy(winner->getId());
             }
         }
 
@@ -198,6 +199,44 @@ Crawler* Board::findBug(int id) const {
         }
     }
     return nullptr; // Return nullptr if not found
+}
+
+void Board::displayLifeHistory() const {
+    for (const Crawler* crawler : crawlers) {
+        std::cout << crawler->getId() << " Crawler Path: ";
+        bool first = true;
+        for (const Position& pos : crawler->getPath()) {
+            if (!first) std::cout << ",";
+            std::cout << "(" << pos.x << "," << pos.y << ")";
+            first = false;
+        }
+        if (!crawler->isAlive()) {
+            std::cout << " Eaten by " << crawler->getKilledBy();
+        }
+        std::cout << std::endl;
+    }
+}
+
+void Board::writeHistoryToFile(const std::string& filename) const {
+    std::ofstream file(filename);
+    if (!file) {
+        std::cerr << "Error writing to file: " << filename << std::endl;
+        return;
+    }
+
+    for (const Crawler* crawler : crawlers) {
+        file << crawler->getId() << " Crawler Path: ";
+        bool first = true;
+        for (const Position& pos : crawler->getPath()) {
+            if (!first) file << ",";
+            file << "(" << pos.x << "," << pos.y << ")";
+            first = false;
+        }
+        if (!crawler->isAlive()) {
+            file << " Eaten by " << crawler->getKilledBy();
+        }
+        file << std::endl;
+    }
 }
 
 

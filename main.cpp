@@ -3,6 +3,8 @@
 //
 
 #include <iostream>
+#include <sstream>
+#include <iomanip>
 #include "Board.h"
 using namespace std;
 
@@ -74,17 +76,26 @@ int main(){
             case 4:
                 break;
             case 5:
+                board.displayLifeHistory();
                 break;
             case 6:
                 break;
             case 7:
                 break;
-            case 8:
-                cout << "Exiting..." << endl;
-            break;
+            case 8: {
+                auto now = std::chrono::system_clock::now();
+                std::time_t now_time = std::chrono::system_clock::to_time_t(now);
+                std::tm* now_tm = std::localtime(&now_time);
+                std::stringstream ss;
+                ss << "bugs_life_history_"
+                   << std::put_time(now_tm, "%Y%m%d_%H%M%S") << ".out";
+                board.writeHistoryToFile(ss.str());
+                std::cout << "Exiting..." << std::endl;
+                break;
+            }
             default:
                 cout << "Invalid choice. Please try again." << endl;
         }
-    }while(choice != 8);
+    }while(choice != 7);
     return 0;
 }
