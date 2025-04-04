@@ -21,7 +21,7 @@ class Board {
     std::vector<Crawler*> crawlers;
 
     std::map<std::pair<int, int>, std::vector<Crawler*>> cells;
-  std::map<int, int> eatenBy;
+      std::map<int, int> eatenBy;
     bool gameOver;
 
     void updateCells();
@@ -33,6 +33,7 @@ class Board {
      ~Board();
 
      bool loadBugsFromFile(std::string& fileName);
+          void initializeBoard(const std::string& filename);
 
      void displayAllBugs() const;
 
@@ -46,7 +47,9 @@ class Board {
 
      void runSimulation();
 
-     void writeHistoryToFile() const;
+void writeHistoryToFile(const std::string& filename) const;
+
+  bool isGameOver() const;
 
 };
 
