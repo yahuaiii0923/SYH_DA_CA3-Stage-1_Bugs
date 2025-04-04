@@ -13,6 +13,8 @@
 #include <cstdlib>
 
 
+
+
 Board::Board() : gameOver(false) {
     // Initialize cells map
     for(int i = 0; i < 10; i++) {
@@ -78,6 +80,7 @@ void Board::handleFights() {
             if (bug != winner) {
                 totalSizeEaten += bug->getSize();
                 bug->setAlive(false);
+                bug->setKilledBy(winner->getId());
             }
         }
 
@@ -159,11 +162,11 @@ void Board::tap() {
     handleFights();
 
   std::cout << "Board tapped! All bugs moved and fights resolved." << std::endl;
-
+    displayAllBugs();
   }
 
 
-  void Board::displayAllCells() const {
+void Board::displayAllCells() const {
     std::cout << "\n====== CELLS AND THEIR BUGS ======\n";
 
     for (int y = 0; y < 10; y++) {
@@ -189,6 +192,92 @@ void Board::tap() {
             std::cout << std::endl;
         }
     }
+}
+
+Crawler* Board::findBug(int id) const {
+    for (Crawler* crawler : crawlers) {
+        if (crawler->getId() == id) {
+            return crawler;
+        }
+    }
+    return nullptr; // Return nullptr if not found
+}
+
+void Board::displayLifeHistory() const {
+    for (const Crawler* crawler : crawlers) {
+        std::cout << crawler->getId() << " Crawler Path: ";
+        bool first = true;
+        for (const Position& pos : crawler->getPath()) {
+            if (!first) std::cout << ",";
+            std::cout << "(" << pos.x << "," << pos.y << ")";
+            first = false;
+        }
+        if (!crawler->isAlive()) {
+            std::cout << " Eaten by " << crawler->getKilledBy();
+        }
+        std::cout << std::endl;
+    }
+}
+
+void Board::writeHistoryToFile(const std::string& filename) const {
+    std::ofstream file(filename);
+    if (!file) {
+        std::cerr << "Error writing to file: " << filename << std::endl;
+        return;
+    }
+
+    for (const Crawler* crawler : crawlers) {
+        file << crawler->getId() << " Crawler Path: ";
+        bool first = true;
+        for (const Position& pos : crawler->getPath()) {
+            if (!first) file << ",";
+            file << "(" << pos.x << "," << pos.y << ")";
+            first = false;
+        }
+        if (!crawler->isAlive()) {
+            file << " Eaten by " << crawler->getKilledBy();
+        }
+        file << std::endl;
+    }
+}
+
+bool Board::isGameOver() const {
+    int aliveCount = 0;
+    for (const Crawler* crawler : crawlers) {
+        if (crawler->isAlive()) aliveCount++;
+        if (aliveCount > 1) return false; // Early exit
+    }
+    return aliveCount <= 1;
+}
+
+void Board::runSimulation() {
+    std::ofstream logFile("simulation.log");
+
+    if (!logFile) {
+        std::cerr << "Error: Failed to open simulation.log for writing.\n";
+        return; // Exit early to avoid silent failures
+    }
+
+    while (!isGameOver()) {
+        tap();
+        displayAllBugs();
+
+        for (const Crawler* bug : crawlers) {
+            logFile << "ID: " << bug->getId()
+                    << " Position: (" << bug->getPositionX() << "," << bug->getPositionY() << ")"
+                    << " Size: " << bug->getSize()
+                    << " Status: " << (bug->isAlive() ? "Alive" : "Dead") << "\n";
+            if (!logFile) {
+                std::cerr << "Error writing to log file!\n";
+                break;
+            }
+        }
+        logFile.flush(); // Ensure data is written even if program crashes later
+
+        std::this_thread::sleep_for(std::chrono::milliseconds(100));
+    }
+
+    logFile.close();
 }
 
 
