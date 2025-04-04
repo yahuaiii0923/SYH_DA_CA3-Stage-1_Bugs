@@ -10,8 +10,8 @@
 #include <thread>
 #include <iomanip>
 #include <ctime>
+#include <random>
 #include <cstdlib>
-
 
 
 
@@ -26,11 +26,11 @@ Board::Board() : gameOver(false) {
 
 
 Board::~Board() {
-    for (auto crawler : crawlers) {
-        delete crawler;
-    }
-    crawlers.clear();
-    cells.clear();
+  for (auto crawler : crawlers) {
+    delete crawler;
+  }
+  crawlers.clear();
+  cells.clear();
 }
 
 // Board.cpp
@@ -116,6 +116,7 @@ void Board::initializeBoard(const std::string& filename) {
 }
 
 
+
 //(2) DisplayAllBugs();
 void Board::displayAllBugs() const {
     std::cout << "\n--- All Bugs ---\n";
@@ -162,11 +163,11 @@ void Board::tap() {
     handleFights();
 
   std::cout << "Board tapped! All bugs moved and fights resolved." << std::endl;
-    displayAllBugs();
+
   }
 
 
-void Board::displayAllCells() const {
+  void Board::displayAllCells() const {
     std::cout << "\n====== CELLS AND THEIR BUGS ======\n";
 
     for (int y = 0; y < 10; y++) {
@@ -194,7 +195,7 @@ void Board::displayAllCells() const {
     }
 }
 
-Crawler* Board::findBug(int id) const {
+ Crawler* Board::findBug(int id) const {
     for (Crawler* crawler : crawlers) {
         if (crawler->getId() == id) {
             return crawler;
@@ -280,4 +281,91 @@ void Board::runSimulation() {
     logFile.close();
 }
 
+void Board::handleFights() {
+    for (int x = 0; x < 10; x++) {
+        for (int y = 0; y < 10; y++) {
+            auto& bugsInCell = cells[{x, y}];
+
+            // skip cells with 0 or 1 bug - no fights
+            if (bugsInCell.size() <= 1) {
+                continue;
+            }
+
+            // count alive bugs
+            std::vector<Crawler*> aliveBugs;
+            for (Crawler* bug : bugsInCell) {
+                if (bug->isAlive()) {
+                    aliveBugs.push_back(bug);
+                }
+            }
+
+            // skip if less than two bugs alive
+            if (aliveBugs.size() <= 1) {
+                continue;
+            }
+
+            // find the bugs with max size
+            int maxSize = 0;
+            std::vector<Crawler*> largestBugs;
+
+            for (Crawler* bug : aliveBugs) {
+                if (bug->getSize() > maxSize) {
+                    maxSize = bug->getSize();
+                    largestBugs.clear();
+                    largestBugs.push_back(bug);
+                } else if (bug->getSize() == maxSize) {
+                    largestBugs.push_back(bug);
+                }
+            }
+
+
+            Crawler* winner;
+            if (largestBugs.size() > 1) {
+                // pick random bug
+                int randomIndex = rand() % largestBugs.size();
+                winner = largestBugs[randomIndex];
+            } else {
+                winner = largestBugs[0];
+            }
+
+
+            int sizeGain = 0;
+            for (Crawler* bug : aliveBugs) {
+                if (bug != winner) {
+                    sizeGain += bug->getSize();
+                    bug->setAlive(false);
+
+
+                    eatenBy[bug->getId()] = winner->getId();
+
+                    std::cout << "Bug " << winner->getId() << " ate bug " << bug->getId()
+                              << " at position (" << x << "," << y << ")" << std::endl;
+                }
+            }
+
+
+            if (sizeGain > 0) {
+                winner->increaseSize(sizeGain);
+                std::cout << "Bug " << winner->getId() << " grew to size "
+                          << winner->getSize() << std::endl;
+            }
+        }
+    }
+}
+
+void Board::updateCells() {
+
+    for (int x = 0; x < 10; x++) {
+        for (int y = 0; y < 10; y++) {
+            cells[{x, y}].clear();
+        }
+    }
+
+    for (Crawler* bug : crawlers) {
+        if (bug->isAlive()) {
+            Position pos = {bug->getPositionX(), bug->getPositionY()};
+            cells[{pos.x, pos.y}].push_back(bug);
+        }
+    }
+}
 
