@@ -10,8 +10,8 @@
 #include <thread>
 #include <iomanip>
 #include <ctime>
+#include <random>
 #include <cstdlib>
-
 
 
 
@@ -26,14 +26,13 @@ Board::Board() : gameOver(false) {
 
 
 Board::~Board() {
-    for (auto crawler : crawlers) {
-        delete crawler;
-    }
-    crawlers.clear();
-    cells.clear();
+  for (auto crawler : crawlers) {
+    delete crawler;
+  }
+  crawlers.clear();
+  cells.clear();
 }
 
-// Board.cpp
 void Board::updateCells() {
     // Clear existing cells
     for (auto& cell : cells) {
@@ -55,7 +54,6 @@ void Board::handleFights() {
         auto& bugsInCell = cellEntry.second;
         if (bugsInCell.size() <= 1) continue;
 
-        // Find the largest bug(s)
         int maxSize = 0;
         for (Crawler* bug : bugsInCell) {
             if (bug->getSize() > maxSize) {
@@ -85,8 +83,6 @@ void Board::handleFights() {
         }
 
         winner->increaseSize(totalSizeEaten);
-        bugsInCell.clear();
-        bugsInCell.push_back(winner);
     }
     updateCells(); // Refresh cell data after fights
 }
@@ -112,8 +108,9 @@ void Board::initializeBoard(const std::string& filename) {
             crawlers.push_back(new Crawler(id, x, y, dir, size));
         }
     }
-    updateCells(); // Update cell positions
+    updateCells(); // positions
 }
+
 
 
 //(2) DisplayAllBugs();
@@ -162,11 +159,11 @@ void Board::tap() {
     handleFights();
 
   std::cout << "Board tapped! All bugs moved and fights resolved." << std::endl;
-    displayAllBugs();
+
   }
 
 
-void Board::displayAllCells() const {
+  void Board::displayAllCells() const {
     std::cout << "\n====== CELLS AND THEIR BUGS ======\n";
 
     for (int y = 0; y < 10; y++) {
@@ -186,7 +183,6 @@ void Board::displayAllCells() const {
                     first = false;
                 }
             } else {
-                // cell is empty
                 std::cout << "empty";
             }
             std::cout << std::endl;
@@ -194,13 +190,13 @@ void Board::displayAllCells() const {
     }
 }
 
-Crawler* Board::findBug(int id) const {
+ Crawler* Board::findBug(int id) const {
     for (Crawler* crawler : crawlers) {
         if (crawler->getId() == id) {
             return crawler;
         }
     }
-    return nullptr; // Return nullptr if not found
+    return nullptr; // if not found
 }
 
 void Board::displayLifeHistory() const {
@@ -272,12 +268,10 @@ void Board::runSimulation() {
                 break;
             }
         }
-        logFile.flush(); // Ensure data is written even if program crashes later
+        logFile.flush();
 
         std::this_thread::sleep_for(std::chrono::milliseconds(100));
     }
 
     logFile.close();
 }
-
-

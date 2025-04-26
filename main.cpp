@@ -38,11 +38,12 @@ int main(){
 
         switch(choice) {
             case 1:
-                board.initializeBoard("/Users/yahuai/Documents/Y2/C++/CA3/SYH_DA_CA3-Stage-1_Bugs/crawler-bugs.txt");
+                board.initializeBoard("crawler-bugs.txt");
                 initialized = true;
                 cout << "Board initialized!\n";
                 break;
             case 2:
+                board.displayAllBugs();
                 break;
             case 3:
             {
@@ -75,11 +76,13 @@ int main(){
                 break;
             }
             case 4:
+                board.tap();
                 break;
             case 5:
                 board.displayLifeHistory();
                 break;
             case 6:
+                board.displayAllCells();
                 break;
             case 7:
                 board.runSimulation();

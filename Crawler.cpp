@@ -26,7 +26,7 @@ int Crawler::getPositionY() const{
   return position.y;
 }
 
-Direction Crawler::getDirection(){
+Direction Crawler::getDirection() const{
   return direction;
 }
 
