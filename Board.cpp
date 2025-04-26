@@ -106,10 +106,10 @@ void Board::initializeBoard(const std::string& filename) {
 
         if (type == 'C') {
             bugs.push_back(new Crawler(id, x, y, dir, size));
-        }else if (type == 'J') {
+        }else if (type == 'H') {
             bugs.push_back(new Hopper(id, x, y, dir, size));
         }
-        // Add more bug types here as needed
+
     }
     updateCells(); // Update positions
 }
@@ -143,7 +143,7 @@ void Board::displayAllBugs() const {
         if (dynamic_cast<const Crawler*>(bug) != nullptr) {
             bugType = "Crawler";
         } else if (dynamic_cast<const Hopper*>(bug) != nullptr) {
-            bugType = "Jumper";
+            bugType = "Hopper";
         }
 
         std::cout << std::left << std::setw(5) << bug->getId()
@@ -206,7 +206,7 @@ void Board::displayAllCells() const {
                             if (dynamic_cast<const Crawler*>(bug) != nullptr) {
                                 bugType = "Crawler";
                             } else if (dynamic_cast<const Hopper*>(bug) != nullptr) {
-                                bugType = "Jumper";
+                                bugType = "Hopper";
                             }
 
                             std::cout << bugType << " " << bug->getId();
