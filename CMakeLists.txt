@@ -5,10 +5,11 @@ set(CMAKE_CXX_STANDARD 14)
 
 include_directories(.)
 
-add_executable(SYH_DA_CA3_Stage_1_Bugs
-        main.cpp
-        Board.cpp
-        Bug.cpp   # Make sure this is included
-        Crawler.cpp
-        Jumper.cpp  # Make sure this is included
-)
+
+add_executable(SYH_DA_CA3_Stage_1_Bug
+    Bug.cpp
+    Board.cpp
+    Crawler.cpp
+    Hopper.cpp
+    main.cpp)
+

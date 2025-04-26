@@ -1,4 +1,7 @@
 /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/bin/cmake -DCMAKE_BUILD_TYPE=Debug -G "Unix Makefiles" -S /Users/plo/Documents/Programming/SYH_DA_CA3-Stage-1_Bugs -B /Users/plo/Documents/Programming/SYH_DA_CA3-Stage-1_Bugs/cmake-build-debug
--- Configuring done (0.0s)
--- Generating done (0.4s)
--- Build files have been written to: /Users/plo/Documents/Programming/SYH_DA_CA3-Stage-1_Bugs/cmake-build-debug
+CMake Error at CMakeLists.txt:8:
+  Parse error.  Expected a command name, got unquoted argument with text
+  "<<<<<<<".
+
+
+-- Configuring incomplete, errors occurred!

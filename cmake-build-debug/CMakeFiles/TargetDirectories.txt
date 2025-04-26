@@ -1,3 +1,0 @@
-/Users/plo/Documents/Programming/SYH_DA_CA3-Stage-1_Bugs/cmake-build-debug/CMakeFiles/SYH_DA_CA3_Stage_1_Bugs.dir
-/Users/plo/Documents/Programming/SYH_DA_CA3-Stage-1_Bugs/cmake-build-debug/CMakeFiles/edit_cache.dir
-/Users/plo/Documents/Programming/SYH_DA_CA3-Stage-1_Bugs/cmake-build-debug/CMakeFiles/rebuild_cache.dir

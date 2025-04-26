@@ -257,7 +257,7 @@ help:
 	@echo "... depend"
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
-	@echo "... SYH_DA_CA3_Stage_1_Bugs"
+	@echo "... SYH_DA_CA3_Stage_1_Bug"
 	@echo "... Board.o"
 	@echo "... Board.i"
 	@echo "... Board.s"
