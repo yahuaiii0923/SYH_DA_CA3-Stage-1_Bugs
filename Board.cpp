@@ -19,17 +19,17 @@ Board::Board() : gameOver(false) {
     // Initialize cells map
     for(int i = 0; i < 10; i++) {
         for(int j = 0; j < 10; j++) {
-            cells[{i, j}] = std::vector<Crawler*>();
+            cells[{i, j}] = std::vector<Bug*>();
         }
     }
 }
 
 
 Board::~Board() {
-  for (auto crawler : crawlers) {
+  for (auto crawler : bugs) {
     delete crawler;
   }
-  crawlers.clear();
+  bugs.clear();
   cells.clear();
 }
 
@@ -40,11 +40,11 @@ void Board::updateCells() {
     }
 
     // Update cells with alive crawlers
-    for (Crawler* crawler : crawlers) {
-        if (crawler->isAlive()) {
-            int x = crawler->getPositionX();
-            int y = crawler->getPositionY();
-            cells[{x, y}].push_back(crawler);
+    for (Bug* bug : bugs) {
+        if (bug->isAlive()) {
+            int x = bug->getPositionX();
+            int y = bug->getPositionY();
+            cells[{x, y}].push_back(bug);
         }
     }
 }
@@ -55,26 +55,26 @@ void Board::handleFights() {
         if (bugsInCell.size() <= 1) continue;
 
         int maxSize = 0;
-        for (Crawler* bug : bugsInCell) {
+        for (Bug* bug : bugsInCell) {
             if (bug->getSize() > maxSize) {
                 maxSize = bug->getSize();
             }
         }
 
         // Collect contenders of max size
-        std::vector<Crawler*> contenders;
-        for (Crawler* bug : bugsInCell) {
+        std::vector<Bug*> contenders;
+        for (Bug* bug : bugsInCell) {
             if (bug->getSize() == maxSize) {
                 contenders.push_back(bug);
             }
         }
 
         // Randomly select a winner if multiple contenders
-        Crawler* winner = contenders[rand() % contenders.size()];
+        Bug* winner = contenders[rand() % contenders.size()];
         int totalSizeEaten = 0;
 
         // Kill other bugs and update winner's size
-        for (Crawler* bug : bugsInCell) {
+        for (Bug* bug : bugsInCell) {
             if (bug != winner) {
                 totalSizeEaten += bug->getSize();
                 bug->setAlive(false);
@@ -105,10 +105,13 @@ void Board::initializeBoard(const std::string& filename) {
         ss >> type >> comma >> id >> comma >> x >> comma >> y >> comma >> dir >> comma >> size;
 
         if (type == 'C') {
-            crawlers.push_back(new Crawler(id, x, y, dir, size));
+            bugs.push_back(new Crawler(id, x, y, dir, size));
+        }else if (type == 'J') {
+            bugs.push_back(new Jumper(id, x, y, dir, size));
         }
+        // Add more bug types here as needed
     }
-    updateCells(); // positions
+    updateCells(); // Update positions
 }
 
 
@@ -124,7 +127,9 @@ void Board::displayAllBugs() const {
               << "Status\n";
     std::cout << std::string(60, '-') << std::endl;
 
-    for (const auto& bug : crawlers) {
+
+
+    for (const auto& bug : bugs) {
         std::string directionStr;
         Direction dir = bug->getDirection();
         switch (dir) {
@@ -134,9 +139,15 @@ void Board::displayAllBugs() const {
             case Direction::West: directionStr = "West"; break;
             default: directionStr = "Unknown";
         }
+        std::string bugType = "Unknown";
+        if (dynamic_cast<const Crawler*>(bug) != nullptr) {
+            bugType = "Crawler";
+        } else if (dynamic_cast<const Jumper*>(bug) != nullptr) {
+            bugType = "Jumper";
+        }
 
         std::cout << std::left << std::setw(5) << bug->getId()
-                  << std::setw(10) << "Crawler"
+                  << std::setw(10) << bugType
                   << "(" << bug->getPositionX() << "," << bug->getPositionY() << ")" << std::setw(3) << " "
                   << std::setw(5) << bug->getSize()
                   << std::setw(10) << directionStr
@@ -148,9 +159,9 @@ void Board::displayAllBugs() const {
 
 void Board::tap() {
 
-  for(Crawler* crawler : crawlers) {
-    if(crawler->isAlive()) {
-      crawler->move();
+  for(Bug* bug : bugs) {
+    if(bug->isAlive()) {
+      bug->move();
     }
     }
 
@@ -163,7 +174,7 @@ void Board::tap() {
   }
 
 
-  void Board::displayAllCells() const {
+void Board::displayAllCells() const {
     std::cout << "\n====== CELLS AND THEIR BUGS ======\n";
 
     for (int y = 0; y < 10; y++) {
@@ -173,14 +184,37 @@ void Board::tap() {
             // find bugs at position
             auto it = cells.find({x, y});
             if (it != cells.end() && !it->second.empty()) {
-
-                bool first = true;
-                for (const Crawler* bug : it->second) {
-                    if (!first) {
-                        std::cout << ", ";
+                // Check if there are any alive bugs in this cell
+                bool hasAliveBugs = false;
+                for (const Bug* bug : it->second) {
+                    if (bug->isAlive()) {
+                        hasAliveBugs = true;
+                        break;
                     }
-                    std::cout << "Crawler " << bug->getId();
-                    first = false;
+                }
+
+                if (hasAliveBugs) {
+                    bool first = true;
+                    for (const Bug* bug : it->second) {
+                        if (bug->isAlive()) {  // only display alive bugs
+                            if (!first) {
+                                std::cout << ", ";
+                            }
+
+                            // determine bug type
+                            std::string bugType = "Unknown";
+                            if (dynamic_cast<const Crawler*>(bug) != nullptr) {
+                                bugType = "Crawler";
+                            } else if (dynamic_cast<const Jumper*>(bug) != nullptr) {
+                                bugType = "Jumper";
+                            }
+
+                            std::cout << bugType << " " << bug->getId();
+                            first = false;
+                        }
+                    }
+                } else {
+                    std::cout << "empty";
                 }
             } else {
                 std::cout << "empty";
@@ -190,26 +224,34 @@ void Board::tap() {
     }
 }
 
- Crawler* Board::findBug(int id) const {
-    for (Crawler* crawler : crawlers) {
-        if (crawler->getId() == id) {
-            return crawler;
+Bug* Board::findBug(int id) const {
+    for (Bug* bug : bugs) {
+        if (bug->getId() == id) {
+            return bug;
         }
     }
     return nullptr; // if not found
 }
 
 void Board::displayLifeHistory() const {
-    for (const Crawler* crawler : crawlers) {
-        std::cout << crawler->getId() << " Crawler Path: ";
+    for (const Bug* bug : bugs) {
+
+        std::string bugType = "Unknown";
+        if (dynamic_cast<const Crawler*>(bug) != nullptr) {
+            bugType = "Crawler";
+        } else if (dynamic_cast<const Jumper*>(bug) != nullptr) {
+            bugType = "Jumper";
+        }
+
+        std::cout << bug->getId() << " " << bugType << " Path: ";
         bool first = true;
-        for (const Position& pos : crawler->getPath()) {
+        for (const Position& pos : bug->getPath()) {
             if (!first) std::cout << ",";
             std::cout << "(" << pos.x << "," << pos.y << ")";
             first = false;
         }
-        if (!crawler->isAlive()) {
-            std::cout << " Eaten by " << crawler->getKilledBy();
+        if (!bug->isAlive()) {
+            std::cout << " Eaten by " << bug->getKilledBy();
         }
         std::cout << std::endl;
     }
@@ -222,25 +264,36 @@ void Board::writeHistoryToFile(const std::string& filename) const {
         return;
     }
 
-    for (const Crawler* crawler : crawlers) {
-        file << crawler->getId() << " Crawler Path: ";
+    for (const Bug* bug : bugs) {
+
+        std::string bugType = "Unknown";
+        if (dynamic_cast<const Crawler*>(bug) != nullptr) {
+            bugType = "Crawler";
+        } else if (dynamic_cast<const Jumper*>(bug) != nullptr) {
+            bugType = "Jumper";
+        }
+
+        file << bug->getId() << " " << bugType << " Path: ";
         bool first = true;
-        for (const Position& pos : crawler->getPath()) {
+        for (const Position& pos : bug->getPath()) {
             if (!first) file << ",";
             file << "(" << pos.x << "," << pos.y << ")";
             first = false;
         }
-        if (!crawler->isAlive()) {
-            file << " Eaten by " << crawler->getKilledBy();
+        if (!bug->isAlive()) {
+            file << " Eaten by " << bug->getKilledBy();
         }
         file << std::endl;
     }
+
+    file.close();
+    std::cout << "Life history written to " << filename << std::endl;
 }
 
 bool Board::isGameOver() const {
     int aliveCount = 0;
-    for (const Crawler* crawler : crawlers) {
-        if (crawler->isAlive()) aliveCount++;
+    for (const Bug* bug : bugs) {
+        if (bug->isAlive()) aliveCount++;
         if (aliveCount > 1) return false; // Early exit
     }
     return aliveCount <= 1;
@@ -258,7 +311,7 @@ void Board::runSimulation() {
         tap();
         displayAllBugs();
 
-        for (const Crawler* bug : crawlers) {
+        for (const Bug* bug : bugs) {
             logFile << "ID: " << bug->getId()
                     << " Position: (" << bug->getPositionX() << "," << bug->getPositionY() << ")"
                     << " Size: " << bug->getSize()

@@ -1,4 +1,4 @@
-/Applications/CLion.app/Contents/bin/cmake/mac/aarch64/bin/cmake -DCMAKE_BUILD_TYPE=Debug -DCMAKE_MAKE_PROGRAM=/Applications/CLion.app/Contents/bin/ninja/mac/aarch64/ninja -G Ninja -S /Users/yahuai/Documents/Y2/C++/CA3/SYH_DA_CA3-Stage-1_Bugs -B /Users/yahuai/Documents/Y2/C++/CA3/SYH_DA_CA3-Stage-1_Bugs/cmake-build-debug
--- Configuring done (0.0s)
--- Generating done (0.0s)
--- Build files have been written to: /Users/yahuai/Documents/Y2/C++/CA3/SYH_DA_CA3-Stage-1_Bugs/cmake-build-debug
+/Applications/CLion.app/Contents/bin/cmake/mac/aarch64/bin/cmake -DCMAKE_BUILD_TYPE=Debug -G "Unix Makefiles" -S /Users/plo/Documents/Programming/SYH_DA_CA3-Stage-1_Bugs -B /Users/plo/Documents/Programming/SYH_DA_CA3-Stage-1_Bugs/cmake-build-debug
+-- Configuring done (607.6s)
+-- Generating done (19.4s)
+-- Build files have been written to: /Users/plo/Documents/Programming/SYH_DA_CA3-Stage-1_Bugs/cmake-build-debug

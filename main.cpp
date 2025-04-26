@@ -19,6 +19,7 @@ void displayMenu(){
          << "\n6. Display all Cells listing their Bugs"
          << "\n7. Run simulation"
          << "\n8. Exit" << endl;
+
 }
 
 int main(){
@@ -55,7 +56,7 @@ int main(){
                 cout << "Enter bug ID to search: ";
                 cin >> searchId;
 
-                Crawler* foundBug = board.findBug(searchId);
+                Bug* foundBug = board.findBug(searchId);
                 if (foundBug != nullptr) {
                     // Display bug details
                     cout << "Bug Found!\n";

@@ -11,48 +11,49 @@
 #include <list>
 #include <string>
 #include <map>
+#include "Bug.h"
 #include "Crawler.h"
-
+#include "Jumper.h"
 
 
 class Board {
-
-  private:
-    std::vector<Crawler*> crawlers;
-
-    std::map<std::pair<int, int>, std::vector<Crawler*>> cells;
-      std::map<int, int> eatenBy;
+private:
+    std::vector<Bug *> bugs; // changed from std::vector<Crawler*> to store any bug type
+    std::map<std::pair<int, int>, std::vector<Bug*>> cells;
     bool gameOver;
 
+
     void updateCells();
+
     void handleFights();
+
     bool isOnlyOneBugAlive() const;
 
-    public:
-     Board();
-     ~Board();
+public:
+    Board();
 
-     bool loadBugsFromFile(std::string& fileName);
-          void initializeBoard(const std::string& filename);
+    ~Board();
 
-     void displayAllBugs() const;
+    bool loadBugsFromFile(std::string &fileName);
 
-     Crawler* findBug(int id) const;
+    void initializeBoard(const std::string &filename);
 
-     void tap();
+    void displayAllBugs() const;
 
-     void displayLifeHistory() const;
+    Bug *findBug(int id) const;
 
-     void displayAllCells() const;
+    void tap();
 
-     void runSimulation();
+    void displayLifeHistory() const;
 
-void writeHistoryToFile(const std::string& filename) const;
+    void displayAllCells() const;
 
-  bool isGameOver() const;
+    void runSimulation();
 
+    void writeHistoryToFile(const std::string &filename) const;
+
+    bool isGameOver() const;
 };
-
 
 
 #endif //BOARD_H

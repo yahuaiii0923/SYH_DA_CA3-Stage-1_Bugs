@@ -55,7 +55,7 @@
 				}
 			],
 			"type" : "INTERNAL",
-			"value" : "/Users/yahuai/Documents/Y2/C++/CA3/SYH_DA_CA3-Stage-1_Bugs/cmake-build-debug"
+			"value" : "/Users/plo/Documents/Programming/SYH_DA_CA3-Stage-1_Bugs/cmake-build-debug"
 		},
 		{
 			"name" : "CMAKE_CACHE_MAJOR_VERSION",
@@ -479,7 +479,7 @@
 				}
 			],
 			"type" : "STATIC",
-			"value" : "/Users/yahuai/Documents/Y2/C++/CA3/SYH_DA_CA3-Stage-1_Bugs/cmake-build-debug/CMakeFiles/pkgRedirects"
+			"value" : "/Users/plo/Documents/Programming/SYH_DA_CA3-Stage-1_Bugs/cmake-build-debug/CMakeFiles/pkgRedirects"
 		},
 		{
 			"name" : "CMAKE_GENERATOR",
@@ -491,7 +491,7 @@
 				}
 			],
 			"type" : "INTERNAL",
-			"value" : "Ninja"
+			"value" : "Unix Makefiles"
 		},
 		{
 			"name" : "CMAKE_GENERATOR_INSTANCE",
@@ -539,7 +539,7 @@
 				}
 			],
 			"type" : "INTERNAL",
-			"value" : "/Users/yahuai/Documents/Y2/C++/CA3/SYH_DA_CA3-Stage-1_Bugs"
+			"value" : "/Users/plo/Documents/Programming/SYH_DA_CA3-Stage-1_Bugs"
 		},
 		{
 			"name" : "CMAKE_INSTALL_NAME_TOOL",
@@ -590,12 +590,16 @@
 			"properties" : 
 			[
 				{
+					"name" : "ADVANCED",
+					"value" : "1"
+				},
+				{
 					"name" : "HELPSTRING",
-					"value" : "No help, variable specified on the command line."
+					"value" : "Path to a program."
 				}
 			],
-			"type" : "UNINITIALIZED",
-			"value" : "/Applications/CLion.app/Contents/bin/ninja/mac/aarch64/ninja"
+			"type" : "FILEPATH",
+			"value" : "/usr/bin/make"
 		},
 		{
 			"name" : "CMAKE_MODULE_LINKER_FLAGS",
@@ -759,7 +763,7 @@
 				}
 			],
 			"type" : "STRING",
-			"value" : ""
+			"value" : "14.6"
 		},
 		{
 			"name" : "CMAKE_OSX_SYSROOT",
@@ -1127,7 +1131,7 @@
 				}
 			],
 			"type" : "STATIC",
-			"value" : "/Users/yahuai/Documents/Y2/C++/CA3/SYH_DA_CA3-Stage-1_Bugs/cmake-build-debug"
+			"value" : "/Users/plo/Documents/Programming/SYH_DA_CA3-Stage-1_Bugs/cmake-build-debug"
 		},
 		{
 			"name" : "SYH_DA_CA3_Stage_1_Bugs_IS_TOP_LEVEL",
@@ -1151,7 +1155,7 @@
 				}
 			],
 			"type" : "STATIC",
-			"value" : "/Users/yahuai/Documents/Y2/C++/CA3/SYH_DA_CA3-Stage-1_Bugs"
+			"value" : "/Users/plo/Documents/Programming/SYH_DA_CA3-Stage-1_Bugs"
 		}
 	],
 	"kind" : "cache",
