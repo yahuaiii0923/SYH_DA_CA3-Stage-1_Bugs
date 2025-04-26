@@ -107,7 +107,7 @@ void Board::initializeBoard(const std::string& filename) {
         if (type == 'C') {
             bugs.push_back(new Crawler(id, x, y, dir, size));
         }else if (type == 'J') {
-            bugs.push_back(new Jumper(id, x, y, dir, size));
+            bugs.push_back(new Hopper(id, x, y, dir, size));
         }
         // Add more bug types here as needed
     }
@@ -142,7 +142,7 @@ void Board::displayAllBugs() const {
         std::string bugType = "Unknown";
         if (dynamic_cast<const Crawler*>(bug) != nullptr) {
             bugType = "Crawler";
-        } else if (dynamic_cast<const Jumper*>(bug) != nullptr) {
+        } else if (dynamic_cast<const Hopper*>(bug) != nullptr) {
             bugType = "Jumper";
         }
 
@@ -205,7 +205,7 @@ void Board::displayAllCells() const {
                             std::string bugType = "Unknown";
                             if (dynamic_cast<const Crawler*>(bug) != nullptr) {
                                 bugType = "Crawler";
-                            } else if (dynamic_cast<const Jumper*>(bug) != nullptr) {
+                            } else if (dynamic_cast<const Hopper*>(bug) != nullptr) {
                                 bugType = "Jumper";
                             }
 
@@ -239,7 +239,7 @@ void Board::displayLifeHistory() const {
         std::string bugType = "Unknown";
         if (dynamic_cast<const Crawler*>(bug) != nullptr) {
             bugType = "Crawler";
-        } else if (dynamic_cast<const Jumper*>(bug) != nullptr) {
+        } else if (dynamic_cast<const Hopper*>(bug) != nullptr) {
             bugType = "Jumper";
         }
 
@@ -269,7 +269,7 @@ void Board::writeHistoryToFile(const std::string& filename) const {
         std::string bugType = "Unknown";
         if (dynamic_cast<const Crawler*>(bug) != nullptr) {
             bugType = "Crawler";
-        } else if (dynamic_cast<const Jumper*>(bug) != nullptr) {
+        } else if (dynamic_cast<const Hopper*>(bug) != nullptr) {
             bugType = "Jumper";
         }
 

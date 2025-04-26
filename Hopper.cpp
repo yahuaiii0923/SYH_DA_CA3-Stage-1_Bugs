@@ -1,14 +1,14 @@
 //
 // Created by plo on 25/04/2025.
 //
-#include "Jumper.h"
+#include "Hopper.h"
 #include <cstdlib>
 
-Jumper::Jumper(int id, int x, int y, int dir, int size)
+Hopper::Hopper(int id, int x, int y, int dir, int size)
     : Bug(id, x, y, dir, size), jumpCounter(0) {
 }
 
-void Jumper::move() {
+void Hopper::move() {
     if (!alive) return;
 
     jumpCounter++;

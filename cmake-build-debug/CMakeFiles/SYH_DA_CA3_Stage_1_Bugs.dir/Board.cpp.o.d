@@ -1,6 +1,6 @@
 CMakeFiles/SYH_DA_CA3_Stage_1_Bugs.dir/Board.cpp.o: \
-  /Users/plo/Documents/Programming/SYH_DA_CA3-Stage-1_Bugs/Board.cpp \
-  /Users/plo/Documents/Programming/SYH_DA_CA3-Stage-1_Bugs/Board.h \
+  /Users/yahuai/Documents/Y2/C++/Bugs_SYH_DA/Board.cpp \
+  /Users/yahuai/Documents/Y2/C++/Bugs_SYH_DA/Board.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.2.sdk/usr/include/c++/v1/vector \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.2.sdk/usr/include/c++/v1/__algorithm/copy.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.2.sdk/usr/include/c++/v1/__algorithm/copy_move_common.h \
@@ -931,9 +931,9 @@ CMakeFiles/SYH_DA_CA3_Stage_1_Bugs.dir/Board.cpp.o: \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.2.sdk/usr/include/c++/v1/__functional/unary_negate.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.2.sdk/usr/include/c++/v1/map \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.2.sdk/usr/include/c++/v1/__tree \
-  /Users/plo/Documents/Programming/SYH_DA_CA3-Stage-1_Bugs/Bug.h \
-  /Users/plo/Documents/Programming/SYH_DA_CA3-Stage-1_Bugs/Crawler.h \
-  /Users/plo/Documents/Programming/SYH_DA_CA3-Stage-1_Bugs/Jumper.h \
+  /Users/yahuai/Documents/Y2/C++/Bugs_SYH_DA/Bug.h \
+  /Users/yahuai/Documents/Y2/C++/Bugs_SYH_DA/Crawler.h \
+  /Users/yahuai/Documents/Y2/C++/Bugs_SYH_DA/Jumper.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.2.sdk/usr/include/c++/v1/iostream \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.2.sdk/usr/include/c++/v1/istream \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.2.sdk/usr/include/c++/v1/ostream \

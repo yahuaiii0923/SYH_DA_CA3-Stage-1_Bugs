@@ -1,7 +1,7 @@
 CMakeFiles/SYH_DA_CA3_Stage_1_Bugs.dir/Crawler.cpp.o: \
-  /Users/plo/Documents/Programming/SYH_DA_CA3-Stage-1_Bugs/Crawler.cpp \
-  /Users/plo/Documents/Programming/SYH_DA_CA3-Stage-1_Bugs/Crawler.h \
-  /Users/plo/Documents/Programming/SYH_DA_CA3-Stage-1_Bugs/Bug.h \
+  /Users/yahuai/Documents/Y2/C++/Bugs_SYH_DA/Crawler.cpp \
+  /Users/yahuai/Documents/Y2/C++/Bugs_SYH_DA/Crawler.h \
+  /Users/yahuai/Documents/Y2/C++/Bugs_SYH_DA/Bug.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.2.sdk/usr/include/c++/v1/list \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.2.sdk/usr/include/c++/v1/__algorithm/comp.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.2.sdk/usr/include/c++/v1/__config \

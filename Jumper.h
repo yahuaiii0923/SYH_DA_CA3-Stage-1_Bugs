@@ -1,17 +1,17 @@
-#ifndef JUMPER_H
-#define JUMPER_H
+#ifndef HOPPER_H
+#define HOPPER_H
 
 #include "Bug.h"
 
-class Jumper : public Bug {
+class Hopper : public Bug {
 private:
-    int jumpCounter; // count jumps
+    int hopLength; // count jumps 2-4square
     
 public:
-    Jumper(int id, int x, int y, int dir, int size);
+    Hopper(int id, int x, int y, int dir, int size);
     
     // override the function from Bug
     void move() override;
 };
 
-#endif // JUMPER_H
+#endif // HOPPER_H

@@ -1,4 +1,4 @@
-# Install script for directory: /Users/plo/Documents/Programming/SYH_DA_CA3-Stage-1_Bugs
+# Install script for directory: /Users/yahuai/Documents/Y2/C++/Bugs_SYH_DA
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -52,6 +52,6 @@ endif()
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-  file(WRITE "/Users/plo/Documents/Programming/SYH_DA_CA3-Stage-1_Bugs/cmake-build-debug/${CMAKE_INSTALL_MANIFEST}"
+  file(WRITE "/Users/yahuai/Documents/Y2/C++/Bugs_SYH_DA/cmake-build-debug/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")
 endif()
