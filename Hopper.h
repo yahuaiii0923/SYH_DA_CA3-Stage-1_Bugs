@@ -15,6 +15,10 @@ private:
 public:
     Hopper(int id, int x, int y, int dir, int size);
 
+    int getHopLength() const {
+        return hopLength;
+    }
+
     void move() override;
 };
 

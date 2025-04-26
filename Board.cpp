@@ -106,11 +106,13 @@ void Board::initializeBoard(const std::string& filename) {
 
         if (type == 'C') {
             bugs.push_back(new Crawler(id, x, y, dir, size));
-        }else if (type == 'H') {
+        } else if (type == 'H') {
             bugs.push_back(new Hopper(id, x, y, dir, size));
+        } else {
+            std::cerr << "Unknown bug type: " << type << std::endl;
         }
-
     }
+    file.close();
     updateCells(); // Update positions
 }
 
@@ -119,38 +121,48 @@ void Board::initializeBoard(const std::string& filename) {
 //(2) DisplayAllBugs();
 void Board::displayAllBugs() const {
     std::cout << "\n--- All Bugs ---\n";
-    std::cout << std::left << std::setw(5) << "ID"
+    std::cout << std::left
+              << std::setw(6) << "ID"
               << std::setw(10) << "Type"
-              << std::setw(10) << "Position"
-              << std::setw(5) << "Size"
+              << std::setw(10) << "Location"
+              << std::setw(8) << "Size"
               << std::setw(10) << "Direction"
+              << std::setw(10) << "HopLength"
               << "Status\n";
     std::cout << std::string(60, '-') << std::endl;
 
-
-
     for (const auto& bug : bugs) {
+        // Get direction as string
         std::string directionStr;
-        Direction dir = bug->getDirection();
-        switch (dir) {
+        switch (bug->getDirection()) {
             case Direction::North: directionStr = "North"; break;
-            case Direction::East: directionStr = "East"; break;
+            case Direction::East:  directionStr = "East";  break;
             case Direction::South: directionStr = "South"; break;
-            case Direction::West: directionStr = "West"; break;
+            case Direction::West:  directionStr = "West";  break;
             default: directionStr = "Unknown";
         }
-        std::string bugType = "Unknown";
+
+        // Get bug type and hop length if applicable
+        std::string bugType;
+        std::string hopLengthStr = "-"; // Default for non-hoppers
+
         if (dynamic_cast<const Crawler*>(bug) != nullptr) {
             bugType = "Crawler";
-        } else if (dynamic_cast<const Hopper*>(bug) != nullptr) {
+        } else if (const auto* hopper = dynamic_cast<const Hopper*>(bug)) {
             bugType = "Hopper";
+            hopLengthStr = std::to_string(hopper->getHopLength());
+        } else {
+            bugType = "Unknown";
         }
 
-        std::cout << std::left << std::setw(5) << bug->getId()
+        std::cout << std::left
+                  << std::setw(6) << bug->getId()
                   << std::setw(10) << bugType
-                  << "(" << bug->getPositionX() << "," << bug->getPositionY() << ")" << std::setw(3) << " "
-                  << std::setw(5) << bug->getSize()
+                  << "(" << bug->getPositionX() << "," << bug->getPositionY() << ")"
+                  << std::setw(4) << " "
+                  << std::setw(8) << bug->getSize()
                   << std::setw(10) << directionStr
+                  << std::setw(10) << hopLengthStr
                   << (bug->isAlive() ? "Alive" : "Dead")
                   << std::endl;
     }
