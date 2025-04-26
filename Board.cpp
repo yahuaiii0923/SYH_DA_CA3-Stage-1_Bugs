@@ -240,7 +240,7 @@ void Board::displayLifeHistory() const {
         if (dynamic_cast<const Crawler*>(bug) != nullptr) {
             bugType = "Crawler";
         } else if (dynamic_cast<const Hopper*>(bug) != nullptr) {
-            bugType = "Jumper";
+            bugType = "Hopper";
         }
 
         std::cout << bug->getId() << " " << bugType << " Path: ";
@@ -270,7 +270,7 @@ void Board::writeHistoryToFile(const std::string& filename) const {
         if (dynamic_cast<const Crawler*>(bug) != nullptr) {
             bugType = "Crawler";
         } else if (dynamic_cast<const Hopper*>(bug) != nullptr) {
-            bugType = "Jumper";
+            bugType = "Hopper";
         }
 
         file << bug->getId() << " " << bugType << " Path: ";

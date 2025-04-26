@@ -63,7 +63,7 @@ CMAKE_BINARY_DIR = /Users/yahuai/Documents/Y2/C++/Bugs_SYH_DA/cmake-build-debug
 # Directory level rules for the build root directory
 
 # The main recursive "all" target.
-all: CMakeFiles/SYH_DA_CA3_Stage_1_Bugs.dir/all
+all: CMakeFiles/SYH_DA_CA3_Stage_1_Bug.dir/all
 .PHONY : all
 
 # The main recursive "preinstall" target.
@@ -71,34 +71,34 @@ preinstall:
 .PHONY : preinstall
 
 # The main recursive "clean" target.
-clean: CMakeFiles/SYH_DA_CA3_Stage_1_Bugs.dir/clean
+clean: CMakeFiles/SYH_DA_CA3_Stage_1_Bug.dir/clean
 .PHONY : clean
 
 #=============================================================================
-# Target rules for target CMakeFiles/SYH_DA_CA3_Stage_1_Bugs.dir
+# Target rules for target CMakeFiles/SYH_DA_CA3_Stage_1_Bug.dir
 
 # All Build rule for target.
-CMakeFiles/SYH_DA_CA3_Stage_1_Bugs.dir/all:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/SYH_DA_CA3_Stage_1_Bugs.dir/build.make CMakeFiles/SYH_DA_CA3_Stage_1_Bugs.dir/depend
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/SYH_DA_CA3_Stage_1_Bugs.dir/build.make CMakeFiles/SYH_DA_CA3_Stage_1_Bugs.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/Users/yahuai/Documents/Y2/C++/Bugs_SYH_DA/cmake-build-debug/CMakeFiles --progress-num=1,2,3,4 "Built target SYH_DA_CA3_Stage_1_Bugs"
-.PHONY : CMakeFiles/SYH_DA_CA3_Stage_1_Bugs.dir/all
+CMakeFiles/SYH_DA_CA3_Stage_1_Bug.dir/all:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/SYH_DA_CA3_Stage_1_Bug.dir/build.make CMakeFiles/SYH_DA_CA3_Stage_1_Bug.dir/depend
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/SYH_DA_CA3_Stage_1_Bug.dir/build.make CMakeFiles/SYH_DA_CA3_Stage_1_Bug.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/Users/yahuai/Documents/Y2/C++/Bugs_SYH_DA/cmake-build-debug/CMakeFiles --progress-num=1,2,3,4,5,6 "Built target SYH_DA_CA3_Stage_1_Bug"
+.PHONY : CMakeFiles/SYH_DA_CA3_Stage_1_Bug.dir/all
 
 # Build rule for subdir invocation for target.
-CMakeFiles/SYH_DA_CA3_Stage_1_Bugs.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /Users/yahuai/Documents/Y2/C++/Bugs_SYH_DA/cmake-build-debug/CMakeFiles 4
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/SYH_DA_CA3_Stage_1_Bugs.dir/all
+CMakeFiles/SYH_DA_CA3_Stage_1_Bug.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /Users/yahuai/Documents/Y2/C++/Bugs_SYH_DA/cmake-build-debug/CMakeFiles 6
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/SYH_DA_CA3_Stage_1_Bug.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /Users/yahuai/Documents/Y2/C++/Bugs_SYH_DA/cmake-build-debug/CMakeFiles 0
-.PHONY : CMakeFiles/SYH_DA_CA3_Stage_1_Bugs.dir/rule
+.PHONY : CMakeFiles/SYH_DA_CA3_Stage_1_Bug.dir/rule
 
 # Convenience name for target.
-SYH_DA_CA3_Stage_1_Bugs: CMakeFiles/SYH_DA_CA3_Stage_1_Bugs.dir/rule
-.PHONY : SYH_DA_CA3_Stage_1_Bugs
+SYH_DA_CA3_Stage_1_Bug: CMakeFiles/SYH_DA_CA3_Stage_1_Bug.dir/rule
+.PHONY : SYH_DA_CA3_Stage_1_Bug
 
 # clean rule for target.
-CMakeFiles/SYH_DA_CA3_Stage_1_Bugs.dir/clean:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/SYH_DA_CA3_Stage_1_Bugs.dir/build.make CMakeFiles/SYH_DA_CA3_Stage_1_Bugs.dir/clean
-.PHONY : CMakeFiles/SYH_DA_CA3_Stage_1_Bugs.dir/clean
+CMakeFiles/SYH_DA_CA3_Stage_1_Bug.dir/clean:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/SYH_DA_CA3_Stage_1_Bug.dir/build.make CMakeFiles/SYH_DA_CA3_Stage_1_Bug.dir/clean
+.PHONY : CMakeFiles/SYH_DA_CA3_Stage_1_Bug.dir/clean
 
 #=============================================================================
 # Special targets to cleanup operation of make.

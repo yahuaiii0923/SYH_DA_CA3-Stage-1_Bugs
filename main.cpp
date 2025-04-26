@@ -13,7 +13,7 @@ Board board;
 void displayMenu(){
     cout << "1. Initialise Bug Board"
          << "\n2. Display all Bugs"
-         << "\n3. Find a Bug"
+         << "\n3. Find a Bug By Id"
          << "\n4. Tap the Bug Board"
          << "\n5. Display Life History of all Bugs"
          << "\n6. Display all Cells listing their Bugs"

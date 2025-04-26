@@ -964,4 +964,4 @@ CMakeFiles/SYH_DA_CA3_Stage_1_Bugs.dir/main.cpp.o: \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.2.sdk/usr/include/c++/v1/__tree \
   /Users/yahuai/Documents/Y2/C++/Bugs_SYH_DA/Bug.h \
   /Users/yahuai/Documents/Y2/C++/Bugs_SYH_DA/Crawler.h \
-  /Users/yahuai/Documents/Y2/C++/Bugs_SYH_DA/Jumper.h
+  /Users/yahuai/Documents/Y2/C++/Bugs_SYH_DA/Hopper.h
