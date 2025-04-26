@@ -69,38 +69,10 @@ include CMakeFiles/SYH_DA_CA3_Stage_1_Bugs.dir/progress.make
 # Include the compile flags for this target's objects.
 include CMakeFiles/SYH_DA_CA3_Stage_1_Bugs.dir/flags.make
 
-CMakeFiles/SYH_DA_CA3_Stage_1_Bugs.dir/Board.cpp.o: CMakeFiles/SYH_DA_CA3_Stage_1_Bugs.dir/flags.make
-CMakeFiles/SYH_DA_CA3_Stage_1_Bugs.dir/Board.cpp.o: /Users/plo/Documents/Programming/SYH_DA_CA3-Stage-1_Bugs/Board.cpp
-CMakeFiles/SYH_DA_CA3_Stage_1_Bugs.dir/Board.cpp.o: CMakeFiles/SYH_DA_CA3_Stage_1_Bugs.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/plo/Documents/Programming/SYH_DA_CA3-Stage-1_Bugs/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/SYH_DA_CA3_Stage_1_Bugs.dir/Board.cpp.o"
-	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/SYH_DA_CA3_Stage_1_Bugs.dir/Board.cpp.o -MF CMakeFiles/SYH_DA_CA3_Stage_1_Bugs.dir/Board.cpp.o.d -o CMakeFiles/SYH_DA_CA3_Stage_1_Bugs.dir/Board.cpp.o -c /Users/plo/Documents/Programming/SYH_DA_CA3-Stage-1_Bugs/Board.cpp
-
-CMakeFiles/SYH_DA_CA3_Stage_1_Bugs.dir/Board.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/SYH_DA_CA3_Stage_1_Bugs.dir/Board.cpp.i"
-	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/plo/Documents/Programming/SYH_DA_CA3-Stage-1_Bugs/Board.cpp > CMakeFiles/SYH_DA_CA3_Stage_1_Bugs.dir/Board.cpp.i
-
-CMakeFiles/SYH_DA_CA3_Stage_1_Bugs.dir/Board.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/SYH_DA_CA3_Stage_1_Bugs.dir/Board.cpp.s"
-	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/plo/Documents/Programming/SYH_DA_CA3-Stage-1_Bugs/Board.cpp -o CMakeFiles/SYH_DA_CA3_Stage_1_Bugs.dir/Board.cpp.s
-
-CMakeFiles/SYH_DA_CA3_Stage_1_Bugs.dir/Crawler.cpp.o: CMakeFiles/SYH_DA_CA3_Stage_1_Bugs.dir/flags.make
-CMakeFiles/SYH_DA_CA3_Stage_1_Bugs.dir/Crawler.cpp.o: /Users/plo/Documents/Programming/SYH_DA_CA3-Stage-1_Bugs/Crawler.cpp
-CMakeFiles/SYH_DA_CA3_Stage_1_Bugs.dir/Crawler.cpp.o: CMakeFiles/SYH_DA_CA3_Stage_1_Bugs.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/plo/Documents/Programming/SYH_DA_CA3-Stage-1_Bugs/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/SYH_DA_CA3_Stage_1_Bugs.dir/Crawler.cpp.o"
-	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/SYH_DA_CA3_Stage_1_Bugs.dir/Crawler.cpp.o -MF CMakeFiles/SYH_DA_CA3_Stage_1_Bugs.dir/Crawler.cpp.o.d -o CMakeFiles/SYH_DA_CA3_Stage_1_Bugs.dir/Crawler.cpp.o -c /Users/plo/Documents/Programming/SYH_DA_CA3-Stage-1_Bugs/Crawler.cpp
-
-CMakeFiles/SYH_DA_CA3_Stage_1_Bugs.dir/Crawler.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/SYH_DA_CA3_Stage_1_Bugs.dir/Crawler.cpp.i"
-	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/plo/Documents/Programming/SYH_DA_CA3-Stage-1_Bugs/Crawler.cpp > CMakeFiles/SYH_DA_CA3_Stage_1_Bugs.dir/Crawler.cpp.i
-
-CMakeFiles/SYH_DA_CA3_Stage_1_Bugs.dir/Crawler.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/SYH_DA_CA3_Stage_1_Bugs.dir/Crawler.cpp.s"
-	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/plo/Documents/Programming/SYH_DA_CA3-Stage-1_Bugs/Crawler.cpp -o CMakeFiles/SYH_DA_CA3_Stage_1_Bugs.dir/Crawler.cpp.s
-
 CMakeFiles/SYH_DA_CA3_Stage_1_Bugs.dir/main.cpp.o: CMakeFiles/SYH_DA_CA3_Stage_1_Bugs.dir/flags.make
 CMakeFiles/SYH_DA_CA3_Stage_1_Bugs.dir/main.cpp.o: /Users/plo/Documents/Programming/SYH_DA_CA3-Stage-1_Bugs/main.cpp
 CMakeFiles/SYH_DA_CA3_Stage_1_Bugs.dir/main.cpp.o: CMakeFiles/SYH_DA_CA3_Stage_1_Bugs.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/plo/Documents/Programming/SYH_DA_CA3-Stage-1_Bugs/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/SYH_DA_CA3_Stage_1_Bugs.dir/main.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/plo/Documents/Programming/SYH_DA_CA3-Stage-1_Bugs/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/SYH_DA_CA3_Stage_1_Bugs.dir/main.cpp.o"
 	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/SYH_DA_CA3_Stage_1_Bugs.dir/main.cpp.o -MF CMakeFiles/SYH_DA_CA3_Stage_1_Bugs.dir/main.cpp.o.d -o CMakeFiles/SYH_DA_CA3_Stage_1_Bugs.dir/main.cpp.o -c /Users/plo/Documents/Programming/SYH_DA_CA3-Stage-1_Bugs/main.cpp
 
 CMakeFiles/SYH_DA_CA3_Stage_1_Bugs.dir/main.cpp.i: cmake_force
@@ -111,21 +83,81 @@ CMakeFiles/SYH_DA_CA3_Stage_1_Bugs.dir/main.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/SYH_DA_CA3_Stage_1_Bugs.dir/main.cpp.s"
 	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/plo/Documents/Programming/SYH_DA_CA3-Stage-1_Bugs/main.cpp -o CMakeFiles/SYH_DA_CA3_Stage_1_Bugs.dir/main.cpp.s
 
+CMakeFiles/SYH_DA_CA3_Stage_1_Bugs.dir/Board.cpp.o: CMakeFiles/SYH_DA_CA3_Stage_1_Bugs.dir/flags.make
+CMakeFiles/SYH_DA_CA3_Stage_1_Bugs.dir/Board.cpp.o: /Users/plo/Documents/Programming/SYH_DA_CA3-Stage-1_Bugs/Board.cpp
+CMakeFiles/SYH_DA_CA3_Stage_1_Bugs.dir/Board.cpp.o: CMakeFiles/SYH_DA_CA3_Stage_1_Bugs.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/plo/Documents/Programming/SYH_DA_CA3-Stage-1_Bugs/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/SYH_DA_CA3_Stage_1_Bugs.dir/Board.cpp.o"
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/SYH_DA_CA3_Stage_1_Bugs.dir/Board.cpp.o -MF CMakeFiles/SYH_DA_CA3_Stage_1_Bugs.dir/Board.cpp.o.d -o CMakeFiles/SYH_DA_CA3_Stage_1_Bugs.dir/Board.cpp.o -c /Users/plo/Documents/Programming/SYH_DA_CA3-Stage-1_Bugs/Board.cpp
+
+CMakeFiles/SYH_DA_CA3_Stage_1_Bugs.dir/Board.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/SYH_DA_CA3_Stage_1_Bugs.dir/Board.cpp.i"
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/plo/Documents/Programming/SYH_DA_CA3-Stage-1_Bugs/Board.cpp > CMakeFiles/SYH_DA_CA3_Stage_1_Bugs.dir/Board.cpp.i
+
+CMakeFiles/SYH_DA_CA3_Stage_1_Bugs.dir/Board.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/SYH_DA_CA3_Stage_1_Bugs.dir/Board.cpp.s"
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/plo/Documents/Programming/SYH_DA_CA3-Stage-1_Bugs/Board.cpp -o CMakeFiles/SYH_DA_CA3_Stage_1_Bugs.dir/Board.cpp.s
+
+CMakeFiles/SYH_DA_CA3_Stage_1_Bugs.dir/Bug.cpp.o: CMakeFiles/SYH_DA_CA3_Stage_1_Bugs.dir/flags.make
+CMakeFiles/SYH_DA_CA3_Stage_1_Bugs.dir/Bug.cpp.o: /Users/plo/Documents/Programming/SYH_DA_CA3-Stage-1_Bugs/Bug.cpp
+CMakeFiles/SYH_DA_CA3_Stage_1_Bugs.dir/Bug.cpp.o: CMakeFiles/SYH_DA_CA3_Stage_1_Bugs.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/plo/Documents/Programming/SYH_DA_CA3-Stage-1_Bugs/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/SYH_DA_CA3_Stage_1_Bugs.dir/Bug.cpp.o"
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/SYH_DA_CA3_Stage_1_Bugs.dir/Bug.cpp.o -MF CMakeFiles/SYH_DA_CA3_Stage_1_Bugs.dir/Bug.cpp.o.d -o CMakeFiles/SYH_DA_CA3_Stage_1_Bugs.dir/Bug.cpp.o -c /Users/plo/Documents/Programming/SYH_DA_CA3-Stage-1_Bugs/Bug.cpp
+
+CMakeFiles/SYH_DA_CA3_Stage_1_Bugs.dir/Bug.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/SYH_DA_CA3_Stage_1_Bugs.dir/Bug.cpp.i"
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/plo/Documents/Programming/SYH_DA_CA3-Stage-1_Bugs/Bug.cpp > CMakeFiles/SYH_DA_CA3_Stage_1_Bugs.dir/Bug.cpp.i
+
+CMakeFiles/SYH_DA_CA3_Stage_1_Bugs.dir/Bug.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/SYH_DA_CA3_Stage_1_Bugs.dir/Bug.cpp.s"
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/plo/Documents/Programming/SYH_DA_CA3-Stage-1_Bugs/Bug.cpp -o CMakeFiles/SYH_DA_CA3_Stage_1_Bugs.dir/Bug.cpp.s
+
+CMakeFiles/SYH_DA_CA3_Stage_1_Bugs.dir/Crawler.cpp.o: CMakeFiles/SYH_DA_CA3_Stage_1_Bugs.dir/flags.make
+CMakeFiles/SYH_DA_CA3_Stage_1_Bugs.dir/Crawler.cpp.o: /Users/plo/Documents/Programming/SYH_DA_CA3-Stage-1_Bugs/Crawler.cpp
+CMakeFiles/SYH_DA_CA3_Stage_1_Bugs.dir/Crawler.cpp.o: CMakeFiles/SYH_DA_CA3_Stage_1_Bugs.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/plo/Documents/Programming/SYH_DA_CA3-Stage-1_Bugs/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/SYH_DA_CA3_Stage_1_Bugs.dir/Crawler.cpp.o"
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/SYH_DA_CA3_Stage_1_Bugs.dir/Crawler.cpp.o -MF CMakeFiles/SYH_DA_CA3_Stage_1_Bugs.dir/Crawler.cpp.o.d -o CMakeFiles/SYH_DA_CA3_Stage_1_Bugs.dir/Crawler.cpp.o -c /Users/plo/Documents/Programming/SYH_DA_CA3-Stage-1_Bugs/Crawler.cpp
+
+CMakeFiles/SYH_DA_CA3_Stage_1_Bugs.dir/Crawler.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/SYH_DA_CA3_Stage_1_Bugs.dir/Crawler.cpp.i"
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/plo/Documents/Programming/SYH_DA_CA3-Stage-1_Bugs/Crawler.cpp > CMakeFiles/SYH_DA_CA3_Stage_1_Bugs.dir/Crawler.cpp.i
+
+CMakeFiles/SYH_DA_CA3_Stage_1_Bugs.dir/Crawler.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/SYH_DA_CA3_Stage_1_Bugs.dir/Crawler.cpp.s"
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/plo/Documents/Programming/SYH_DA_CA3-Stage-1_Bugs/Crawler.cpp -o CMakeFiles/SYH_DA_CA3_Stage_1_Bugs.dir/Crawler.cpp.s
+
+CMakeFiles/SYH_DA_CA3_Stage_1_Bugs.dir/Jumper.cpp.o: CMakeFiles/SYH_DA_CA3_Stage_1_Bugs.dir/flags.make
+CMakeFiles/SYH_DA_CA3_Stage_1_Bugs.dir/Jumper.cpp.o: /Users/plo/Documents/Programming/SYH_DA_CA3-Stage-1_Bugs/Jumper.cpp
+CMakeFiles/SYH_DA_CA3_Stage_1_Bugs.dir/Jumper.cpp.o: CMakeFiles/SYH_DA_CA3_Stage_1_Bugs.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/plo/Documents/Programming/SYH_DA_CA3-Stage-1_Bugs/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/SYH_DA_CA3_Stage_1_Bugs.dir/Jumper.cpp.o"
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/SYH_DA_CA3_Stage_1_Bugs.dir/Jumper.cpp.o -MF CMakeFiles/SYH_DA_CA3_Stage_1_Bugs.dir/Jumper.cpp.o.d -o CMakeFiles/SYH_DA_CA3_Stage_1_Bugs.dir/Jumper.cpp.o -c /Users/plo/Documents/Programming/SYH_DA_CA3-Stage-1_Bugs/Jumper.cpp
+
+CMakeFiles/SYH_DA_CA3_Stage_1_Bugs.dir/Jumper.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/SYH_DA_CA3_Stage_1_Bugs.dir/Jumper.cpp.i"
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/plo/Documents/Programming/SYH_DA_CA3-Stage-1_Bugs/Jumper.cpp > CMakeFiles/SYH_DA_CA3_Stage_1_Bugs.dir/Jumper.cpp.i
+
+CMakeFiles/SYH_DA_CA3_Stage_1_Bugs.dir/Jumper.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/SYH_DA_CA3_Stage_1_Bugs.dir/Jumper.cpp.s"
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/plo/Documents/Programming/SYH_DA_CA3-Stage-1_Bugs/Jumper.cpp -o CMakeFiles/SYH_DA_CA3_Stage_1_Bugs.dir/Jumper.cpp.s
+
 # Object files for target SYH_DA_CA3_Stage_1_Bugs
 SYH_DA_CA3_Stage_1_Bugs_OBJECTS = \
+"CMakeFiles/SYH_DA_CA3_Stage_1_Bugs.dir/main.cpp.o" \
 "CMakeFiles/SYH_DA_CA3_Stage_1_Bugs.dir/Board.cpp.o" \
+"CMakeFiles/SYH_DA_CA3_Stage_1_Bugs.dir/Bug.cpp.o" \
 "CMakeFiles/SYH_DA_CA3_Stage_1_Bugs.dir/Crawler.cpp.o" \
-"CMakeFiles/SYH_DA_CA3_Stage_1_Bugs.dir/main.cpp.o"
+"CMakeFiles/SYH_DA_CA3_Stage_1_Bugs.dir/Jumper.cpp.o"
 
 # External object files for target SYH_DA_CA3_Stage_1_Bugs
 SYH_DA_CA3_Stage_1_Bugs_EXTERNAL_OBJECTS =
 
-SYH_DA_CA3_Stage_1_Bugs: CMakeFiles/SYH_DA_CA3_Stage_1_Bugs.dir/Board.cpp.o
-SYH_DA_CA3_Stage_1_Bugs: CMakeFiles/SYH_DA_CA3_Stage_1_Bugs.dir/Crawler.cpp.o
 SYH_DA_CA3_Stage_1_Bugs: CMakeFiles/SYH_DA_CA3_Stage_1_Bugs.dir/main.cpp.o
+SYH_DA_CA3_Stage_1_Bugs: CMakeFiles/SYH_DA_CA3_Stage_1_Bugs.dir/Board.cpp.o
+SYH_DA_CA3_Stage_1_Bugs: CMakeFiles/SYH_DA_CA3_Stage_1_Bugs.dir/Bug.cpp.o
+SYH_DA_CA3_Stage_1_Bugs: CMakeFiles/SYH_DA_CA3_Stage_1_Bugs.dir/Crawler.cpp.o
+SYH_DA_CA3_Stage_1_Bugs: CMakeFiles/SYH_DA_CA3_Stage_1_Bugs.dir/Jumper.cpp.o
 SYH_DA_CA3_Stage_1_Bugs: CMakeFiles/SYH_DA_CA3_Stage_1_Bugs.dir/build.make
 SYH_DA_CA3_Stage_1_Bugs: CMakeFiles/SYH_DA_CA3_Stage_1_Bugs.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/Users/plo/Documents/Programming/SYH_DA_CA3-Stage-1_Bugs/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Linking CXX executable SYH_DA_CA3_Stage_1_Bugs"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/Users/plo/Documents/Programming/SYH_DA_CA3-Stage-1_Bugs/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Linking CXX executable SYH_DA_CA3_Stage_1_Bugs"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/SYH_DA_CA3_Stage_1_Bugs.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

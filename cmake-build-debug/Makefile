@@ -153,6 +153,30 @@ Board.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/SYH_DA_CA3_Stage_1_Bugs.dir/build.make CMakeFiles/SYH_DA_CA3_Stage_1_Bugs.dir/Board.cpp.s
 .PHONY : Board.cpp.s
 
+Bug.o: Bug.cpp.o
+.PHONY : Bug.o
+
+# target to build an object file
+Bug.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/SYH_DA_CA3_Stage_1_Bugs.dir/build.make CMakeFiles/SYH_DA_CA3_Stage_1_Bugs.dir/Bug.cpp.o
+.PHONY : Bug.cpp.o
+
+Bug.i: Bug.cpp.i
+.PHONY : Bug.i
+
+# target to preprocess a source file
+Bug.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/SYH_DA_CA3_Stage_1_Bugs.dir/build.make CMakeFiles/SYH_DA_CA3_Stage_1_Bugs.dir/Bug.cpp.i
+.PHONY : Bug.cpp.i
+
+Bug.s: Bug.cpp.s
+.PHONY : Bug.s
+
+# target to generate assembly for a file
+Bug.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/SYH_DA_CA3_Stage_1_Bugs.dir/build.make CMakeFiles/SYH_DA_CA3_Stage_1_Bugs.dir/Bug.cpp.s
+.PHONY : Bug.cpp.s
+
 Crawler.o: Crawler.cpp.o
 .PHONY : Crawler.o
 
@@ -176,6 +200,30 @@ Crawler.s: Crawler.cpp.s
 Crawler.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/SYH_DA_CA3_Stage_1_Bugs.dir/build.make CMakeFiles/SYH_DA_CA3_Stage_1_Bugs.dir/Crawler.cpp.s
 .PHONY : Crawler.cpp.s
+
+Jumper.o: Jumper.cpp.o
+.PHONY : Jumper.o
+
+# target to build an object file
+Jumper.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/SYH_DA_CA3_Stage_1_Bugs.dir/build.make CMakeFiles/SYH_DA_CA3_Stage_1_Bugs.dir/Jumper.cpp.o
+.PHONY : Jumper.cpp.o
+
+Jumper.i: Jumper.cpp.i
+.PHONY : Jumper.i
+
+# target to preprocess a source file
+Jumper.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/SYH_DA_CA3_Stage_1_Bugs.dir/build.make CMakeFiles/SYH_DA_CA3_Stage_1_Bugs.dir/Jumper.cpp.i
+.PHONY : Jumper.cpp.i
+
+Jumper.s: Jumper.cpp.s
+.PHONY : Jumper.s
+
+# target to generate assembly for a file
+Jumper.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/SYH_DA_CA3_Stage_1_Bugs.dir/build.make CMakeFiles/SYH_DA_CA3_Stage_1_Bugs.dir/Jumper.cpp.s
+.PHONY : Jumper.cpp.s
 
 main.o: main.cpp.o
 .PHONY : main.o
@@ -213,9 +261,15 @@ help:
 	@echo "... Board.o"
 	@echo "... Board.i"
 	@echo "... Board.s"
+	@echo "... Bug.o"
+	@echo "... Bug.i"
+	@echo "... Bug.s"
 	@echo "... Crawler.o"
 	@echo "... Crawler.i"
 	@echo "... Crawler.s"
+	@echo "... Jumper.o"
+	@echo "... Jumper.i"
+	@echo "... Jumper.s"
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"

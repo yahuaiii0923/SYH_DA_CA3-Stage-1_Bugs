@@ -39,7 +39,7 @@ int main(){
 
         switch(choice) {
             case 1:
-                board.initializeBoard("crawler-bugs.txt");
+                board.initializeBoard("mixed_bugs.txt");
                 initialized = true;
                 cout << "Board initialized!\n";
                 break;

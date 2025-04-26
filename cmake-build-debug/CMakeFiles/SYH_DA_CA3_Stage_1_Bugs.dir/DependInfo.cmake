@@ -9,7 +9,9 @@ set(CMAKE_DEPENDS_LANGUAGES
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
   "/Users/plo/Documents/Programming/SYH_DA_CA3-Stage-1_Bugs/Board.cpp" "CMakeFiles/SYH_DA_CA3_Stage_1_Bugs.dir/Board.cpp.o" "gcc" "CMakeFiles/SYH_DA_CA3_Stage_1_Bugs.dir/Board.cpp.o.d"
+  "/Users/plo/Documents/Programming/SYH_DA_CA3-Stage-1_Bugs/Bug.cpp" "CMakeFiles/SYH_DA_CA3_Stage_1_Bugs.dir/Bug.cpp.o" "gcc" "CMakeFiles/SYH_DA_CA3_Stage_1_Bugs.dir/Bug.cpp.o.d"
   "/Users/plo/Documents/Programming/SYH_DA_CA3-Stage-1_Bugs/Crawler.cpp" "CMakeFiles/SYH_DA_CA3_Stage_1_Bugs.dir/Crawler.cpp.o" "gcc" "CMakeFiles/SYH_DA_CA3_Stage_1_Bugs.dir/Crawler.cpp.o.d"
+  "/Users/plo/Documents/Programming/SYH_DA_CA3-Stage-1_Bugs/Jumper.cpp" "CMakeFiles/SYH_DA_CA3_Stage_1_Bugs.dir/Jumper.cpp.o" "gcc" "CMakeFiles/SYH_DA_CA3_Stage_1_Bugs.dir/Jumper.cpp.o.d"
   "/Users/plo/Documents/Programming/SYH_DA_CA3-Stage-1_Bugs/main.cpp" "CMakeFiles/SYH_DA_CA3_Stage_1_Bugs.dir/main.cpp.o" "gcc" "CMakeFiles/SYH_DA_CA3_Stage_1_Bugs.dir/main.cpp.o.d"
   )
 
