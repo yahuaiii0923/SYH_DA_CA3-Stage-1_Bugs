@@ -4,70 +4,20 @@
 
 #include "Crawler.h"
 #include <cstdlib>
-#include <ctime>
 
-//constructor
 Crawler::Crawler(int id, int x, int y, int dir, int size)
-    : id(id), position{x, y}, direction(static_cast<Direction>(dir)), size(size), alive(true) {
-    path.push_back(position);
-}
-
-
-//getter
-int Crawler::getId() const{
-  return id;
-}
-
-int Crawler::getPositionX() const{
-  return position.x;
-}
-
-int Crawler::getPositionY() const{
-  return position.y;
-}
-
-Direction Crawler::getDirection() const{
-  return direction;
-}
-
-int Crawler::getSize() const{
-  return size;
-}
-
-bool Crawler::isAlive() const{
-  return alive;
-}
-
-std::list<Position> Crawler::getPath() const{
-  return path;
-}
-
-int Crawler::getKilledBy() const {
-    return killedBy;
-}
-
-//setter
-void Crawler::setDirection(Direction dir){
-  direction = dir;
-}
-
-void Crawler::setAlive(bool status){
-  alive = status;
-}
-
-void Crawler::increaseSize(int amount) {
-    size += amount;
+    : Bug(id, x, y, dir, size) {
 }
 
 void Crawler::move() {
     if (!alive) return;
 
-    // Keep changing direction until movement is possible
+    // keep changing direction until able to move
     while (isWayBlocked()) {
         direction = static_cast<Direction>((rand() % 4) + 1); // Random direction (1-4)
     }
 
-    // Update position based on direction
+    // update position based on direction
     switch (direction) {
         case Direction::North: position.y--; break;
         case Direction::East:  position.x++; break;
@@ -75,19 +25,5 @@ void Crawler::move() {
         case Direction::West:  position.x--; break;
     }
 
-    path.push_back(position); // Record new position
-}
-
-bool Crawler::isWayBlocked() const {
-    switch (direction) {
-        case Direction::North: return (position.y == 0);  // Top edge
-        case Direction::East:  return (position.x == 9);  // Right edge
-        case Direction::South: return (position.y == 9);  // Bottom edge
-        case Direction::West:  return (position.x == 0); // Left edge
-        default: return false;
-    }
-}
-
-void Crawler::setKilledBy(int killerId) {
-    killedBy = killerId;
+    path.push_back(position); // record new position
 }
