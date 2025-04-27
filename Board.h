@@ -34,8 +34,6 @@ public:
 
     ~Board();
 
-    bool loadBugsFromFile(std::string &fileName);
-
     void initializeBoard(const std::string &filename);
 
     void displayAllBugs() const;

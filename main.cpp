@@ -46,31 +46,62 @@ int main(){
             case 2:
                 board.displayAllBugs();
                 break;
-            case 3:
-            {
-                if (!initialized) {
-                    cout << "Board not initialized. Select option 1 first.\n";
-                    break;
-                }
+            case 3: {
                 int searchId;
                 cout << "Enter bug ID to search: ";
-                cin >> searchId;
 
-                Bug* foundBug = board.findBug(searchId);
+                // Validate input is a number
+                while (!(cin >> searchId)) {
+                    cout << "Invalid input. Please enter a numeric bug ID: ";
+                    cin.clear();
+                    cin.ignore(numeric_limits<streamsize>::max(), '\n');
+                }
+
+                Bug *foundBug = board.findBug(searchId);
+
                 if (foundBug != nullptr) {
-                    // Display bug details
-                    cout << "Bug Found!\n";
-                    cout << "ID: " << foundBug->getId() << "\n";
-                    cout << "Position: (" << foundBug->getPositionX() << ", " << foundBug->getPositionY() << ")\n";
-                    cout << "Direction: ";
-                    switch (foundBug->getDirection()) {
-                        case Direction::North: cout << "North"; break;
-                        case Direction::East:  cout << "East";  break;
-                        case Direction::South: cout << "South"; break;
-                        case Direction::West:  cout << "West";  break;
+                    // Get bug type
+                    string bugType = "Unknown";
+                    if (dynamic_cast<const Crawler *>(foundBug) != nullptr) {
+                        bugType = "Crawler";
+                    } else if (dynamic_cast<const Hopper *>(foundBug) != nullptr) {
+                        bugType = "Hopper";
                     }
-                    cout << "\nSize: " << foundBug->getSize() << "\n";
+
+                    // Get direction as string
+                    string directionStr;
+                    switch (foundBug->getDirection()) {
+                        case Direction::North: directionStr = "North";
+                            break;
+                        case Direction::East: directionStr = "East";
+                            break;
+                        case Direction::South: directionStr = "South";
+                            break;
+                        case Direction::West: directionStr = "West";
+                            break;
+                        default: directionStr = "Unknown";
+                    }
+
+                    // Display bug details
+                    cout << "\n--- Bug Found ---\n";
+                    cout << "ID: " << foundBug->getId() << "\n";
+                    cout << "Type: " << bugType << "\n";
+                    cout << "Location: (" << foundBug->getPositionX() << ", "
+                            << foundBug->getPositionY() << ")\n";
+                    cout << "Size: " << foundBug->getSize() << "\n";
+                    cout << "Direction: " << directionStr << "\n";
+
+                    // Show hop length if it's a Hopper
+                    if (const Hopper *hopper = dynamic_cast<const Hopper *>(foundBug)) {
+                        cout << "Hop Length: " << hopper->getHopLength() << "\n";
+                    }
+
                     cout << "Status: " << (foundBug->isAlive() ? "Alive" : "Dead") << "\n";
+
+                    // Show killer if dead
+                    if (!foundBug->isAlive()) {
+                        cout << "Killed by: Bug " << foundBug->getKilledBy() << "\n";
+                    }
                 } else {
                     cout << "Bug " << searchId << " not found.\n";
                 }

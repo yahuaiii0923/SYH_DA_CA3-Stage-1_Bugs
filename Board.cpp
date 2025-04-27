@@ -24,13 +24,12 @@ Board::Board() : gameOver(false) {
     }
 }
 
-
 Board::~Board() {
-  for (auto crawler : bugs) {
-    delete crawler;
-  }
-  bugs.clear();
-  cells.clear();
+    for (auto bug : bugs) {
+        delete bug;
+    }
+    bugs.clear();
+    cells.clear();
 }
 
 void Board::updateCells() {
@@ -170,6 +169,7 @@ void Board::displayAllBugs() const {
 
 
 void Board::tap() {
+    std::cout << "\nTapping the bug board...\n";
 
   for(Bug* bug : bugs) {
     if(bug->isAlive()) {
@@ -184,7 +184,6 @@ void Board::tap() {
   std::cout << "Board tapped! All bugs moved and fights resolved." << std::endl;
 
   }
-
 
 void Board::displayAllCells() const {
     std::cout << "\n====== CELLS AND THEIR BUGS ======\n";
