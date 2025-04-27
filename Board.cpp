@@ -192,42 +192,24 @@ void Board::displayAllCells() const {
         for (int x = 0; x < 10; x++) {
             std::cout << "(" << x << "," << y << "): ";
 
-            // find bugs at position
-            auto it = cells.find({x, y});
-            if (it != cells.end() && !it->second.empty()) {
-                // Check if there are any alive bugs in this cell
-                bool hasAliveBugs = false;
-                for (const Bug* bug : it->second) {
-                    if (bug->isAlive()) {
-                        hasAliveBugs = true;
-                        break;
-                    }
+            // Access the pre-updated cells (no modification)
+            auto cellIt = cells.find({x, y});
+            if (cellIt == cells.end() || cellIt->second.empty()) {
+                std::cout << "empty" << std::endl;
+                continue;
+            }
+
+            bool first = true;
+            for (const Bug* bug : cellIt->second) {
+                if (bug->isAlive()) { // Only show alive bugs
+                    if (!first) std::cout << ", ";
+                    std::string type = (dynamic_cast<const Crawler*>(bug)) ? "Crawler" : "Hopper";
+                    std::cout << type << " " << bug->getId();
+                    first = false;
                 }
+            }
 
-                if (hasAliveBugs) {
-                    bool first = true;
-                    for (const Bug* bug : it->second) {
-                        if (bug->isAlive()) {  // only display alive bugs
-                            if (!first) {
-                                std::cout << ", ";
-                            }
-
-                            // determine bug type
-                            std::string bugType = "Unknown";
-                            if (dynamic_cast<const Crawler*>(bug) != nullptr) {
-                                bugType = "Crawler";
-                            } else if (dynamic_cast<const Hopper*>(bug) != nullptr) {
-                                bugType = "Hopper";
-                            }
-
-                            std::cout << bugType << " " << bug->getId();
-                            first = false;
-                        }
-                    }
-                } else {
-                    std::cout << "empty";
-                }
-            } else {
+            if (first) { // No alive bugs in cell
                 std::cout << "empty";
             }
             std::cout << std::endl;
@@ -305,40 +287,43 @@ void Board::writeHistoryToFile(const std::string& filename) const {
 }
 
 bool Board::isGameOver() const {
-    int aliveCount = 0;
+    return (countAliveBugs() <= 1);
+}
+
+int Board::countAliveBugs() const {
+    int count = 0;
     for (const Bug* bug : bugs) {
-        if (bug->isAlive()) aliveCount++;
-        if (aliveCount > 1) return false; // Early exit
+        if (bug->isAlive()) count++;
     }
-    return aliveCount <= 1;
+    return count;
 }
 
 void Board::runSimulation() {
     std::ofstream logFile("simulation.log");
-
     if (!logFile) {
-        std::cerr << "Error: Failed to open simulation.log for writing.\n";
-        return; // Exit early to avoid silent failures
+        std::cerr << "Error: Failed to open simulation.log.\n";
+        return;
     }
 
     while (!isGameOver()) {
-        tap();
-        displayAllBugs();
+        tap(); // Move bugs and resolve fights
+        displayAllBugs(); // Show progress on screen
 
-        for (const Bug* bug : bugs) {
-            logFile << "ID: " << bug->getId()
-                    << " Position: (" << bug->getPositionX() << "," << bug->getPositionY() << ")"
-                    << " Size: " << bug->getSize()
-                    << " Status: " << (bug->isAlive() ? "Alive" : "Dead") << "\n";
-            if (!logFile) {
-                std::cerr << "Error writing to log file!\n";
-                break;
-            }
-        }
-        logFile.flush();
+        // Log minimal info (e.g., round number, alive count)
+        static int round = 1;
+        logFile << "--- Round " << round++ << " ---\n";
+        logFile << "Alive bugs: " << countAliveBugs() << "\n\n";
 
-        std::this_thread::sleep_for(std::chrono::milliseconds(100));
+        std::this_thread::sleep_for(std::chrono::seconds(1)); // 1-second delay
     }
+
+    // Write final life history to timestamped file
+    auto now = std::chrono::system_clock::now();
+    std::time_t now_time = std::chrono::system_clock::to_time_t(now);
+    std::tm* now_tm = std::localtime(&now_time);
+    std::stringstream ss;
+    ss << "bugs_life_history_" << std::put_time(now_tm, "%Y%m%d_%H%M%S") << ".out";
+    writeHistoryToFile(ss.str());
 
     logFile.close();
 }
