@@ -246,7 +246,6 @@ Bug* Board::findBug(int id) const {
 
 void Board::displayLifeHistory() const {
     for (const Bug* bug : bugs) {
-
         std::string bugType = "Unknown";
         if (dynamic_cast<const Crawler*>(bug) != nullptr) {
             bugType = "Crawler";
@@ -255,14 +254,18 @@ void Board::displayLifeHistory() const {
         }
 
         std::cout << bug->getId() << " " << bugType << " Path: ";
+
         bool first = true;
         for (const Position& pos : bug->getPath()) {
-            if (!first) std::cout << ",";
+            if (!first) std::cout << ","; // No space after comma
             std::cout << "(" << pos.x << "," << pos.y << ")";
             first = false;
         }
+
         if (!bug->isAlive()) {
             std::cout << " Eaten by " << bug->getKilledBy();
+        } else {
+            std::cout << " Alive!";
         }
         std::cout << std::endl;
     }
