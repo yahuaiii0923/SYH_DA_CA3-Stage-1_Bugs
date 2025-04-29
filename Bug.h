@@ -7,6 +7,7 @@
 
 #include <list>
 
+
 struct Position {
     int x;
     int y;

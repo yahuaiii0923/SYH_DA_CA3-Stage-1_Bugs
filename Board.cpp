@@ -12,6 +12,7 @@
 #include <ctime>
 #include <random>
 #include <cstdlib>
+#include "Zigzagger.h"
 
 
 
@@ -108,7 +109,11 @@ void Board::initializeBoard(const std::string& filename) {
             bugs.push_back(new Crawler(id, x, y, dir, size));
         } else if (type == 'H') {
             bugs.push_back(new Hopper(id, x, y, dir, size));
-        } else {
+        }else if (type == 'Z') {
+            bugs.push_back(new Zigzagger(id, x, y, dir, size));
+        }
+
+        else {
             std::cerr << "Unknown bug type: " << type << std::endl;
         }
     }
@@ -151,7 +156,10 @@ void Board::displayAllBugs() const {
         } else if (const auto* hopper = dynamic_cast<const Hopper*>(bug)) {
             bugType = "Hopper";
             hopLengthStr = std::to_string(hopper->getHopLength());
-        } else {
+        }else if (dynamic_cast<const Zigzagger*>(bug) != nullptr) {
+            bugType = "Zigzagger";
+        }
+        else {
             bugType = "Unknown";
         }
 
@@ -219,6 +227,8 @@ void Board::displayAllCells() const {
                                 bugType = "Crawler";
                             } else if (dynamic_cast<const Hopper*>(bug) != nullptr) {
                                 bugType = "Hopper";
+                            }else if (dynamic_cast<const Zigzagger*>(bug) != nullptr) {
+                                bugType = "Zigzagger";
                             }
 
                             std::cout << bugType << " " << bug->getId();
@@ -253,6 +263,8 @@ void Board::displayLifeHistory() const {
             bugType = "Crawler";
         } else if (dynamic_cast<const Hopper*>(bug) != nullptr) {
             bugType = "Hopper";
+        }else if (dynamic_cast<const Zigzagger*>(bug) != nullptr) {
+            bugType = "Zigzagger";
         }
 
         std::cout << bug->getId() << " " << bugType << " Path: ";
@@ -283,6 +295,8 @@ void Board::writeHistoryToFile(const std::string& filename) const {
             bugType = "Crawler";
         } else if (dynamic_cast<const Hopper*>(bug) != nullptr) {
             bugType = "Hopper";
+        }else if (dynamic_cast<const Zigzagger*>(bug) != nullptr) {
+            bugType = "Zigzagger";
         }
 
         file << bug->getId() << " " << bugType << " Path: ";
